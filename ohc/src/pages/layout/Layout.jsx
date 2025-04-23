@@ -4,8 +4,7 @@ import { IoMdMenu } from "react-icons/io";
 import {
   LayoutDashboard,
   FileWarning,
-  Receipt ,
-  Tag,
+  Receipt,
   CalendarClock,
   FileBarChart,
   Wallet,
@@ -32,13 +31,13 @@ const Layout = () => {
       title: "Leads",
       icon: (
         <div className="relative w-6 h-6">
-      <File className="absolute  w-6 h-6" />
-      <AlertTriangle className="absolute left-1.5 top-2  w-3 h-3" />
-    </div>
+          <File className="absolute  w-6 h-6" />
+          <AlertTriangle className="absolute left-1.5 top-2  w-3 h-3" />
+        </div>
       ),
       to: "#",
     },
-    { title: "CMS", icon: <Receipt  size={23} />, to: "#" },
+    { title: "CMS", icon: <Receipt size={23} />, to: "#" },
     { title: "Appoinment", icon: <CalendarClock size={23} />, to: "#" },
     {
       title: "Finance",
@@ -62,7 +61,7 @@ const Layout = () => {
           className={`${
             !open
               ? `sm:static absolute sm:w-[320px] w-4/5 z-10`
-              : `sm:w-28 hidden `
+              : `sm:w-28 hidden  `
           }  h-screen  sm:block dark:bg-layout-dark bg-layout-light`}
         >
           <div
@@ -116,7 +115,11 @@ const Layout = () => {
             ))}
           </ul>
         </div>
-        <div className={`${!open ? `sm:p-4` : `sm:p-4 px-1.5`} w-screen`}>
+        <div
+          className={`${
+            !open ? `sm:p-4  sm:blur-none blur-sm` : ` sm:p-4 px-1.5`
+          } w-screen`}
+        >
           <Header open={open} setOpen={setOpen} />
           <Suspense>
             <Outlet />

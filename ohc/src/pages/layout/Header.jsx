@@ -56,7 +56,7 @@ const Header = ({ open, setOpen }) => {
               KA
             </p>
           </div>
-          <span className="pl-2">
+          <span className="pl-2  ">
             <ThemeToggle />
           </span>
         </div>

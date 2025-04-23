@@ -1,32 +1,21 @@
-// ThemeToggle.jsx
-import { useEffect, useState } from "react";
-import { Sun, Moon } from "lucide-react"; // or your own icons
+import { useContext } from "react";
+import { Sun, Moon } from "lucide-react"; 
+import { ThemeContext } from "./ThemeContext";
 
 const ThemeToggle = () => {
-  const [isDark, setIsDark] = useState("light")
-
-  useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      root.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [isDark]);
-
+  const { isDark, setIsDark } = useContext(ThemeContext);
   return (
     <button
-      onClick={() => setIsDark(!isDark)}
-      className="p-2 rounded-full bg-overall_bg-light  dark:bg-overall_bg-dark transition"
-    >
-      {!isDark ? (
-        <Sun className="h-5 w-5  text-layout_text-light" />
-      ) : (
-        <Moon className="h-5 w-5 text-layout_text-dark" />
-      )}
-    </button>
+    onClick={() => setIsDark((prev) => !prev)}
+    className="p-2 rounded-full bg-overall_bg-light dark:bg-overall_bg-dark  transition"
+  >
+    {isDark ? (
+      <Moon className="h-5 w-5 text-layout_text-dark" />
+    ) : (
+      <Sun className="h-5 w-5 text-layout_text-light" />
+    )}
+  </button>
+
   );
 };
 
