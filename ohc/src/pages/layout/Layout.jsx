@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { IoMdMenu } from "react-icons/io";
 import {
   LayoutDashboard,
@@ -13,12 +13,14 @@ import {
 import { File, AlertTriangle } from "lucide-react";
 import { Clipboard, DollarSign } from "lucide-react";
 import Header from "./Header";
-import Logo from "../../assets/images/img.png";
+import Logo from "../../assets/images/icon.png";
 import Logo_L from "../../assets/images/Logo(light).png";
 import Logo_D from "../../assets/images/Logo(dark).png";
+import NavBar from "../../component/NavBar";
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   const Menus = [
     {
@@ -26,7 +28,7 @@ const Layout = () => {
       icon: <LayoutDashboard size={23} />,
       to: "/dashboard",
     },
-    { title: "GMD", icon: <FileWarning size={23} />, to: "#" },
+    { title: "GMB", icon: <FileWarning size={23} />, to: "/gmb" },
     {
       title: "Leads",
       icon: (
@@ -35,7 +37,7 @@ const Layout = () => {
           <AlertTriangle className="absolute left-1.5 top-2  w-3 h-3" />
         </div>
       ),
-      to: "#",
+      to: "/leads",
     },
     { title: "CMS", icon: <Receipt size={23} />, to: "#" },
     { title: "Appoinment", icon: <CalendarClock size={23} />, to: "#" },
@@ -77,7 +79,7 @@ const Layout = () => {
               }`}
             />
 
-            <div className="flex justify-center w-full  items-center pb-3  ">
+            <div className="px-2 flex justify-center w-full  items-center pb-3  ">
               {!open ? (
                 <>
                   <img
@@ -100,7 +102,13 @@ const Layout = () => {
             {Menus.map((menu, index) => (
               <React.Fragment key={index}>
                 <NavLink to={menu.to}>
-                  <li className="flex justify-start w-full pl-8 gap-2  items-center hover:bg-select_layout-light dark:hover:bg-select_layout-dark py-3 text-layout_text-light dark:text-layout_text-dark  hover:font-semibold hover:text-hover-text-light dark:hover:text-hover-text-dark ">
+                  <li
+                    className={`flex justify-start w-full pl-8 gap-3 my-1.5  items-center hover:bg-select_layout-light dark:hover:bg-select_layout-dark py-2  text-layout_text-light dark:text-layout_text-dark  hover:font-semibold hover:text-hover-text-light dark:hover:text-hover-text-dark ${
+                      location.pathname && location.pathname.startsWith(menu.to)
+                        ? "dark:bg-select_layout-dark bg-select_layout-light font-semibold text-white"
+                        : ""
+                    }`}
+                  >
                     <span className="text-layout_text-light bg-overall_bg-light dark:bg-overall_bg-dark dark:text-layout_text-dark p-2 rounded-md ">
                       {menu.icon}
                     </span>
@@ -120,7 +128,6 @@ const Layout = () => {
             !open ? `sm:p-4  sm:blur-none blur-sm` : ` sm:p-4 px-1.5`
           } w-screen`}
         >
-          <Header open={open} setOpen={setOpen} />
           <Suspense>
             <Outlet />
           </Suspense>
