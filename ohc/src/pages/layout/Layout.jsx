@@ -40,7 +40,7 @@ const Layout = () => {
       to: "/leads",
     },
     { title: "CMS", icon: <Receipt size={23} />, to: "#" },
-    { title: "Appoinment", icon: <CalendarClock size={23} />, to: "#" },
+    { title: "Appoinment", icon: <CalendarClock size={23} />, to: "/appointment" },
     {
       title: "Finance",
       icon: (
@@ -49,7 +49,7 @@ const Layout = () => {
           <DollarSign className="absolute left-1 top-2 w-3 h-3" />
         </div>
       ),
-      to: "#",
+      to: "/finance",
     },
     { title: "Reports", icon: <FileBarChart size={23} />, to: "#" },
     { title: "Subscription", icon: <Wallet size={23} />, to: "#" },
@@ -62,7 +62,7 @@ const Layout = () => {
         <div
           className={`${
             !open
-              ? `sm:static absolute sm:w-[320px] w-4/5 z-10`
+              ? `sm:static absolute sm:w-[320px] w-4/5 z-10 sm:z-0`
               : `sm:w-28 hidden  `
           }  h-screen  sm:block dark:bg-layout-dark bg-layout-light`}
         >

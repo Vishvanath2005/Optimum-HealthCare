@@ -2,36 +2,36 @@ import React, { useEffect, useState } from "react";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import Pagination from "../../../component/Pagination";
 import { LuEye } from "react-icons/lu";
-import { TbBrandCampaignmonitor } from "react-icons/tb";
-import Filter from "../../../component/Filter";
+import { Pencil } from "lucide-react";
 import { TbFileExport } from "react-icons/tb";
+import Filter from "../../../component/Filter";
 import { useSearch } from "../../../component/SearchBar";
-import { campaignData } from "../../../component/Data";
-import CreateCampaign from "./CreateCampaign";
+import { PatientsData } from "../../../component/Data";
+import Edit_Patients from "./Edit_Patients";
+import View_Patient from "./View_Patients";
 
-const Campaign = () => {
+const Patients = () => {
   const { searchTerm } = useSearch();
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [createCampaign,  setCreateCampaign] = useState(false)
+  const [editPatients, setEditPatients] = useState(false);
+  const [viewPatientModal, setViewPatientModal] = useState(false);  
 
   const itemsPerPage = 10;
+
   useEffect(() => {
     if (!searchTerm) {
-      setFilteredData(campaignData);
+      setFilteredData(PatientsData);
       return;
     }
 
     const lowerSearchTerm = searchTerm.toString().toLowerCase();
 
-    const filtered = campaignData.filter((item) =>
+    const filtered = PatientsData.filter((item) =>
       Object.values(item).some((value) => {
         const lowerValue = value.toString().toLowerCase();
-
         if (lowerValue === lowerSearchTerm) return true;
-
         if (!isNaN(searchTerm) && lowerValue.includes(searchTerm)) return true;
-
         return lowerValue.startsWith(lowerSearchTerm);
       })
     );
@@ -47,13 +47,9 @@ const Campaign = () => {
   );
 
   return (
-    <>
+    <div>
       <div className="relative">
         <div className="font-layout-font absolute -top-13 right-0 flex justify-end items-center gap-2 pb-2">
-          <p onClick={() =>setCreateCampaign(true)} className="flex items-center dark:text-white gap-2 bg-select_layout-dark px-4 py-2 text-sm rounded-md">
-            <TbBrandCampaignmonitor size={18} />
-            Create Campaign
-          </p>
           <p className="cursor-pointer flex items-center gap-1.5 dark:text-white dark:bg-layout-dark bg-layout-light px-4 py-2 rounded-md">
             <TbFileExport />
             Export
@@ -61,19 +57,19 @@ const Campaign = () => {
           <Filter />
         </div>
       </div>
+
       <div className="font-layout-font overflow-auto no-scrollbar">
-        <table className=" w-full xl:h-fit h-[703px]  dark:text-white whitespace-nowrap">
+        <table className="w-full xl:h-fit h-[703px] dark:text-white whitespace-nowrap">
           <thead>
-            <tr className=" font-semibold text-sm dark:bg-layout-dark bg-layout-light border-b-2 dark:border-overall_bg-dark border-overall_bg-light ">
-              <th className=" p-3.5 rounded-l-lg">S.no</th>
+            <tr className="font-semibold text-sm dark:bg-layout-dark bg-layout-light border-b-2 dark:border-overall_bg-dark border-overall_bg-light">
+              <th className="p-3.5 rounded-l-lg">S.no</th>
               {[
-                "Campaign ID",
-                "Channel",
-                "Start Date",
-                "End Date",
-                "Budget",
-                "Leads",
-                "CPL",
+                "Lead ID",
+                "Name",
+                "Phone Number",
+                "Email Id",
+                "Location",
+                "Status",
               ].map((heading) => (
                 <th key={heading} className="p-5">
                   <h1 className="flex items-center justify-center gap-1">
@@ -84,35 +80,40 @@ const Campaign = () => {
               <th className="pr-2 rounded-r-lg">Action</th>
             </tr>
           </thead>
-          <tbody className="dark:bg-layout-dark bg-layout-light rounded-2xl dark:text-gray-200 text-gray-600   cursor-default">
+
+          <tbody className="dark:bg-layout-dark bg-layout-light rounded-2xl dark:text-gray-200 text-gray-600 cursor-default">
             {paginatedData.length > 0 ? (
               paginatedData.map((data, index) => (
                 <tr
-                  className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center "
                   key={index}
+                  className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center"
                 >
-                  <td className="rounded-l-lg ">
-                    {(currentPage - 1) * itemsPerPage + index + 1}
-                  </td>
-                  <td>{data["Campaign ID"]}</td>
-                  <td>{data["Channel"]}</td>
-                  <td>{data["Start Date"]}</td>
-                  <td>{data["End Date"]}</td>
-                  <td>{data["Budget"]}</td>
-                  <td>{data["Leads"]}</td>
-                  <td>{data["CPL"]}</td>
-                  <td className="pl-4 p-2.5 rounded-r-lg">
-                    {" "}
-                    <p className="cursor-pointer bg-[#BAFFBA] text-green-600 w-fit rounded-sm py-1.5 px-1.5">
-                      {" "}
-                      <LuEye size={16} />
-                    </p>
+                  <td className="p-4">{startIndex + index + 1}</td>
+                  <td>{data.leadId}</td>
+                  <td>{data.name}</td>
+                  <td>{data.phoneNumber}</td>
+                  <td>{data.emailId}</td>
+                  <td>{data.location}</td>
+                  <td>{data.status}</td>
+                  <td className="flex items-center justify-center gap-2 py-4">
+                    <button
+                      className="bg-blue-200 p-2 rounded"
+                      onClick={() => setEditPatients(true)}
+                    >
+                      <Pencil size={16} className="text-blue-600" />
+                    </button>
+                    <button
+                      className="bg-green-200 p-2 rounded"
+                      onClick={() => setViewPatientModal(true)}  
+                    >
+                      <LuEye size={16} className="text-green-600" />
+                    </button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="10" className="text-center py-10 text-gray-500">
+                <td colSpan="8" className="text-center py-10 text-gray-500">
                   No matching results found.
                 </td>
               </tr>
@@ -127,9 +128,22 @@ const Campaign = () => {
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
-      {createCampaign && <CreateCampaign onclose={()=>{setCreateCampaign(false)}}/>}
-    </>
+      {editPatients && (
+        <Edit_Patients
+          onclose={() => {
+            setEditPatients(false);
+          }}
+        />
+      )}
+      {viewPatientModal && (  
+                <View_Patient
+          onclose={() => {
+            setViewPatientModal(false);
+          }}
+        />
+      )}
+    </div>
   );
 };
 
-export default Campaign;
+export default Patients;

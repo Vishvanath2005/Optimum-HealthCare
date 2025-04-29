@@ -8,6 +8,8 @@ import ForgotPassword from './pages/auth/ForgotPassword'
 import Gmb from './pages/gmb/GMB'
 import EditGmbSet from './pages/gmb/EditGmbSet'
 import Leads from './pages/leads/Leads'
+import Appointment from './pages/appointment/Appointment'
+import Finance from './pages/finance/Finance'
 
 const App = () => {
   return (
@@ -19,7 +21,9 @@ const App = () => {
       <Route path="/forgotpassword" element ={<ForgotPassword/>}/>
       <Route path="/" element={<Layout />}>
       <Route path="/dashboard" element ={<Dashboard/>}/>
+      <Route path="/appointment" element ={<Appointment/>}/>
       <Route path="/gmb" element ={<Gmb/>}/>
+      <Route path="/finance" element ={<Finance/>}/>
       <Route path="/editgmb" element ={<EditGmbSet/>}/>
       <Route path="/leads" element ={<Leads/>}/>
       </Route>

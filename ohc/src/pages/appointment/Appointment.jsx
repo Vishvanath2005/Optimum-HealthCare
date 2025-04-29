@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import NavBar from "../../component/NavBar";
 import { TbBrandCampaignmonitor } from "react-icons/tb";
 import { TbClipboardList } from "react-icons/tb";
-import Campaign from "./campaign/Campaign";
-import Leads_Tab from "./leads/Leads_Tab";
+import Patients from "./patients/Patients";
+import Appointment_Tab from "./appointment/Appointment_Tab";
 
-const Leads = () => {
+const Appointment = () => {
   const [activeTab, setActiveTab] = useState("1");
   return (
     <>
       <NavBar
-        title="Leads"
-        pagetitle={activeTab === "1" ? "Campaign" : "Leads Table"}
+        title="Appointment"
+        pagetitle={activeTab === "1" ? "Appointment" : "Patients"}
       />
       <div className="cursor-pointer flex justify-between items-center ">
         <div className="font-layout-font flex gap-2  py-2 dark:text-white">
@@ -21,7 +21,7 @@ const Leads = () => {
             }`}
             onClick={() => setActiveTab("1")}
           >
-            <TbBrandCampaignmonitor size={24}/> Campaign
+            <TbBrandCampaignmonitor size={24}/>Patients 
           </p>
           <p
             className={`flex  gap-2  items-center  px-4 py-3 font-semibold rounded-sm text-sm ${
@@ -29,13 +29,14 @@ const Leads = () => {
             }`}
             onClick={() => setActiveTab("2")}
           >
-           <TbClipboardList size={24}/> Leads
+           <TbClipboardList size={24}/> Appointment
           </p>
         </div>
+        
       </div>
-      {activeTab === "1" ? <Campaign/> : <Leads_Tab />}
+      {activeTab === "1" ? <Patients/> : <Appointment_Tab />}
     </>
   );
 };
 
-export default Leads;
+export default Appointment;
