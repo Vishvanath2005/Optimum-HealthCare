@@ -21,6 +21,7 @@ import EditBlogs from "./pages/cms/Blogs/EditBlogs";
 import ViewCampaign from "./pages/leads/campaign/ViewCampaign";
 import ViewLeads from "./pages/leads/leads/ViewLeads";
 import Invoice from "./pages/appointment/appointment/Invoice";
+import Association from "./pages/association/Association";
 
 const App = () => {
   return (
@@ -59,6 +60,7 @@ const App = () => {
                 <Route index element={<EditBlogs />} />
               </Route>
             </Route> */}
+            <Route path="/association" element={<Association />}/>
             <Route path="/reports" element={<Report />} />
             <Route path="/subscription" element={<SubscriptionPlans />} />
             <Route path="/setting">

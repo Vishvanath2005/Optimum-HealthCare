@@ -40,6 +40,7 @@ const Layout = () => {
       to: "/leads",
     },
     // { title: "CMS", icon: <Receipt size={23} />, to: "/cms" },
+    { title: "Association", icon: <Receipt size={23} />, to: "/association" },
     { title: "Appoinment", icon: <CalendarClock size={23} />, to: "/appointment" },
     {
       title: "Finance",
