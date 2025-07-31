@@ -36,7 +36,7 @@ const AddFollowUp = ({ onclose }) => {
               />
             </div>
 
-            <div className="flex col-span-2 gap-5 justify-between items-center ">
+            {/* <div className="flex col-span-2 gap-5 justify-between items-center ">
               <label className="">Schedule Follow up</label>
               <input
                 type="date"
@@ -51,7 +51,7 @@ const AddFollowUp = ({ onclose }) => {
                 placeholder="convert to sales"
                 className="p-2 rounded-md w-72 bg-transparent border border-[#454545] dark:placeholder:text-white placeholder:text-black"
               />
-            </div>
+            </div> */}
             <div className="flex col-span-2 gap-5 justify-between items-center">
               <label className="">Notes</label>
               <textarea
