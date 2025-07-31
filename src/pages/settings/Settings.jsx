@@ -4,6 +4,8 @@ import { LuUsers } from "react-icons/lu";
 import { HiOutlineUserGroup } from "react-icons/hi2";
 import User from "./users/User";
 import Roles from "./roles/Roles";
+import Master from "./master/Master";
+import { FiLock } from "react-icons/fi";
 
 
 
@@ -14,7 +16,13 @@ const Settings = () => {
     <>
       <NavBar
         title="Settings"
-        pagetitle={activeTab === "1" ? "User" : "Roles"}
+       pagetitle={
+          activeTab === "1"
+            ? "User"
+            : activeTab === "2"
+            ? "Roles"
+            : "Master"
+        }
       />
       <div className="cursor-pointer flex justify-between items-center ">
         <div className="font-layout-font flex gap-2  py-2 dark:text-white">
@@ -34,9 +42,23 @@ const Settings = () => {
           >
            <HiOutlineUserGroup size={24}/> Roles
           </p>
+             <p
+            className={`flex gap-2 items-center px-4 py-3 font-semibold rounded-sm text-sm ${
+              activeTab === "3" ? "dark:bg-layout-dark bg-layout-light" : ""
+            }`}
+            onClick={() => setActiveTab("3")}
+          >
+            <HiOutlineUserGroup size={22} /> Master
+          </p>
         </div>
       </div>
-      {activeTab === "1" ?<User/>  : <Roles/> }
+       {activeTab === "1" ? (
+        <User />
+      ) : activeTab === "2" ? (
+        <Roles />
+      ) : (
+        < Master/>
+      )}
     </>
   );
 };
