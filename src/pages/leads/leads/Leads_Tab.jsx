@@ -18,8 +18,8 @@ const Leads_Tab = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [Edit_lead, setEdit_lead] = useState(false);
-    const [CreateAppoinment,  setCreateAppoinment] = useState(false)
-  
+  const [CreateAppoinment, setCreateAppoinment] = useState(false);
+
   const navigate = useNavigate();
 
   const itemsPerPage = 10;
@@ -78,11 +78,12 @@ const Leads_Tab = () => {
               <th className="p-4 rounded-l-lg">S.no</th>
               {[
                 "Lead ID",
+                "Lead Type",
                 "Name",
-                "Phone Number",
-                "Email Id",
-                "Location",
-                "Status",
+                "Age",
+                "Weight",
+                "Circle",
+                "BD Name",
               ].map((heading) => (
                 <th key={heading} className="p-5">
                   <h1 className="flex items-center justify-center gap-1">
@@ -101,25 +102,26 @@ const Leads_Tab = () => {
                   key={index}
                   className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center"
                 >
-                  <td className="rounded-l-lg ">{index + 1}</td>
+                  <td className="rounded-l-lg">{index + 1}</td>
                   <td>{data.leadId}</td>
+                  <td>{data.leadType}</td>
                   <td>{data.name}</td>
-                  <td>{data.phoneNumber}</td>
-                  <td>{data.emailId}</td>
-                  <td>{data.location}</td>
-                  <td>{data.status}</td>
+                  <td>{data.age}</td>
+                  <td>{data.weight}</td>
+                  <td>{data.circle}</td>
+                  <td>{data.bdName || "Not yet Assigned"}</td>
                   <td className="space-x-2 pl-4 p-2.5 rounded-r-lg">
                     <button
                       onClick={() => {
                         setEdit_lead(true);
                       }}
-                      className=" cursor-pointer bg-blue-200 p-1.5 rounded-sm"
+                      className="cursor-pointer bg-blue-200 p-1.5 rounded-sm"
                     >
                       <Pencil size={16} className="text-blue-600" />
                     </button>
                     <button
                       onClick={() => navigate("viewleads")}
-                      className=" cursor-pointer bg-green-200 p-1.5 rounded-sm"
+                      className="cursor-pointer bg-green-200 p-1.5 rounded-sm"
                     >
                       <LuEye size={16} className="text-green-600" />
                     </button>
@@ -128,7 +130,7 @@ const Leads_Tab = () => {
               ))
             ) : (
               <tr>
-                <td colSpan="8" className="text-center py-10 text-gray-500">
+                <td colSpan="13" className="text-center py-10 text-gray-500">
                   No matching results found.
                 </td>
               </tr>
@@ -151,7 +153,13 @@ const Leads_Tab = () => {
           }}
         />
       )}
-       {CreateAppoinment && <Create_Appoinment onclose={()=>{setCreateAppoinment(false)}}/>}
+      {CreateAppoinment && (
+        <Create_Appoinment
+          onclose={() => {
+            setCreateAppoinment(false);
+          }}
+        />
+      )}
     </>
   );
 };

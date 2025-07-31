@@ -140,22 +140,124 @@ export const campaignData = [
 
 export const leadData = [
   {
-    leadId: "#658957",
-    name: "William",
-    phoneNumber: "95839 37825",
-    emailId: "gjfjkgj@gmail.com",
-    location: "Chennai",
+    leadId: "#700201",
+    createdDate: "2025-07-30",
+    leadType: "New Lead",
+    name: "Arjun Mehta",
+    age: 32,
+    weight: "70kg",
+    circle: "North Zone",
+    bdName: "Ravi Kumar",
+    comments: "Interested in wellness package",
     status: "Active",
+    leadTransfer: "Not Transferred"
   },
   {
-    leadId: "#658958",
-    name: "Sophia",
-    phoneNumber: "98765 43210",
-    emailId: "sophia@gmail.com",
-    location: "Mumbai",
+    leadId: "#700202",
+    createdDate: "2025-07-29",
+    leadType: "Follow Up 1",
+    name: "Priya Sharma",
+    age: 45,
+    weight: "62kg",
+    circle: "East Zone",
+    bdName: "",
+    comments: "Requested a call back next week",
     status: "Pending",
+    leadTransfer: "Transferred to South Team"
+  },
+  {
+    leadId: "#700203",
+    createdDate: "2025-07-28",
+    leadType: "DNP 1",
+    name: "Rahul Verma",
+    age: 29,
+    weight: "80kg",
+    circle: "South Zone",
+    bdName: "",
+    comments: "Did not pick up, will retry",
+    status: "On Hold",
+    leadTransfer: "Not Transferred"
+  },
+  {
+    leadId: "#700204",
+    createdDate: "2025-07-27",
+    leadType: "DNP 2",
+    name: "Kavita Nair",
+    age: 39,
+    weight: "68kg",
+    circle: "West Zone",
+    bdName: "Neha Iyer",
+    comments: "Still unreachable",
+    status: "Inactive",
+    leadTransfer: "Transferred to Retry Queue"
+  },
+  {
+    leadId: "#700205",
+    createdDate: "2025-07-26",
+    leadType: "DNP Exh",
+    name: "Suresh Rathi",
+    age: 50,
+    weight: "75kg",
+    circle: "Central Zone",
+    bdName: "Amit Singh",
+    comments: "Previously unreachable, now responsive",
+    status: "Active",
+    leadTransfer: "Not Transferred"
+  },
+  {
+    leadId: "#700206",
+    createdDate: "2025-07-25",
+    leadType: "Hot Lead",
+    name: "Divya Joshi",
+    age: 34,
+    weight: "60kg",
+    circle: "North Zone",
+    bdName: "Ravi Kumar",
+    comments: "Ready to sign up this week",
+    status: "Hot",
+    leadTransfer: "Not Transferred"
+  },
+  {
+    leadId: "#700207",
+    createdDate: "2025-07-24",
+    leadType: "Junk Lead",
+    name: "Manoj Patil",
+    age: 41,
+    weight: "85kg",
+    circle: "South Zone",
+    bdName: "Vikram Das",
+    comments: "Wrong contact information",
+    status: "Discarded",
+    leadTransfer: "Not Transferred"
+  },
+  {
+    leadId: "#700208",
+    createdDate: "2025-07-23",
+    leadType: "Out of City",
+    name: "Nikita Jain",
+    age: 28,
+    weight: "55kg",
+    circle: "West Zone",
+    bdName: "Neha Iyer",
+    comments: "Not in service area",
+    status: "Out of Scope",
+    leadTransfer: "Not Applicable"
+  },
+  {
+    leadId: "#700209",
+    createdDate: "2025-07-22",
+    leadType: "Not Interested",
+    name: "Abhishek Tiwari",
+    age: 37,
+    weight: "72kg",
+    circle: "Central Zone",
+    bdName: "Amit Singh",
+    comments: "Declined offer",
+    status: "Closed",
+    leadTransfer: "Not Transferred"
   }
 ];
+
 export const LeadsTableData = [
  
     {
