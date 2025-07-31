@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../../component/NavBar";
 import { TbFileExport } from "react-icons/tb";
-import {  Pencil } from "lucide-react";
+import { Pencil } from "lucide-react";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import { FiTrash2 } from "react-icons/fi";
 import { FinanceData } from "../../component/Data";
@@ -16,7 +16,7 @@ const Finance = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [Edit_Finance_Model, setEdit_Finance_Model] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false)
+  const [deleteModal, setDeleteModal] = useState(false);
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -61,7 +61,7 @@ const Finance = () => {
           <TbFileExport />
           Export
         </p>
-        <Filter/>
+        <Filter />
       </div>
       <div className="font-layout-font overflow-auto no-scrollbar">
         <table className="w-full xl:h-fit h-[703px] dark:text-white whitespace-nowrap">
@@ -69,12 +69,15 @@ const Finance = () => {
             <tr className="font-semibold text-sm dark:bg-layout-dark bg-layout-light border-b-2 dark:border-overall_bg-dark border-overall_bg-light">
               <th className="p-3.5 rounded-l-lg">S.no</th>
               {[
-                "Invoice Number",
+                "Invoice Id",
                 "Name",
-                "Phone Number",
-                "Doctor",
-                "Particles",
-                "Amount",
+                "Hospital",
+                "Doctor ",
+                "Payment",
+                "Total Bill",
+                "Settled Amount",
+                "Company",
+                "Profits",
               ].map((heading) => (
                 <th key={heading} className="p-5">
                   <h1 className="flex items-center justify-center gap-1">
@@ -86,18 +89,21 @@ const Finance = () => {
             </tr>
           </thead>
           <tbody className="dark:bg-layout-dark bg-layout-light rounded-2xl dark:text-gray-200 text-gray-600 cursor-default">
-            {FinanceData.map((data) => (
+            {FinanceData.map((data, index) => (
               <tr
-                key={data.id}
+                key={index}
                 className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center"
               >
-                <td className="rounded-l-lg">{data.id}</td>
-                <td>{data.invoiceNumber}</td>
+                <td className="rounded-l-lg ">{index + 1}.</td>{" "}
+                <td>{data.invoiceId}</td>
                 <td>{data.name}</td>
-                <td>{data.phoneNumber}</td>
-                <td>{data.doctor}</td>
-                <td>{data.particles}</td>
-                <td>{data.amount}</td>
+                <td className="px-4">{data.hospitalName}</td>
+                <td>{data.doctorName}</td>
+                <td>{data.paymentType}</td>
+                <td>{data.totalBill}</td>
+                <td>{data.settledAmount}</td>
+                <td>{data.company}</td>
+                <td>{data.profits}</td>
                 <td className="pl-4 p-2.5 rounded-r-lg">
                   <div className="flex justify-center items-center gap-3">
                     <button
@@ -106,7 +112,10 @@ const Finance = () => {
                     >
                       <Pencil size={16} />
                     </button>
-                    <button onClick={ () =>setDeleteModal(true)} className=" cursor-pointer p-1 rounded-sm  bg-red-200 text-red-500">
+                    <button
+                      onClick={() => setDeleteModal(true)}
+                      className=" cursor-pointer p-1 rounded-sm  bg-red-200 text-red-500"
+                    >
                       <FiTrash2 size={16} />
                     </button>
                   </div>
@@ -124,9 +133,15 @@ const Finance = () => {
         onPageChange={setCurrentPage}
       />
       {Edit_Finance_Model && (
-        <Edit_Finance onClose={()=>{setEdit_Finance_Model(false)}} />
+        <Edit_Finance
+          onClose={() => {
+            setEdit_Finance_Model(false);
+          }}
+        />
       )}
-      {deleteModal && <DeleteModal onclose={ () =>setDeleteModal(false)} title="Finance"/>}
+      {deleteModal && (
+        <DeleteModal onclose={() => setDeleteModal(false)} title="Finance" />
+      )}
     </div>
   );
 };
