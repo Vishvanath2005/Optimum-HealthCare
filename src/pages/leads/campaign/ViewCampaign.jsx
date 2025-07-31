@@ -101,7 +101,7 @@ const ViewCampaign = () => {
             <AppointmentsTable />
           </div>
         )}
-        <div className="col-span-12 p-3.5 dark:bg-layout-dark bg-white    w-full rounded-lg">
+        {/* <div className="col-span-12 p-3.5 dark:bg-layout-dark bg-white    w-full rounded-lg">
           <div
             onClick={toggleOpen2}
             className="mx-4 flex justify-between items-center  "
@@ -112,7 +112,7 @@ const ViewCampaign = () => {
             </p>
           </div>
         </div>
-        {isOpenInvoice && <div className="w-full col-span-12"><InvoiceTable/></div>}
+        {isOpenInvoice && <div className="w-full col-span-12"><InvoiceTable/></div>} */}
       </div>
     </>
   );
