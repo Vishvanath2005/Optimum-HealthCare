@@ -39,7 +39,7 @@ const Layout = () => {
       ),
       to: "/leads",
     },
-    { title: "CMS", icon: <Receipt size={23} />, to: "/cms" },
+    // { title: "CMS", icon: <Receipt size={23} />, to: "/cms" },
     { title: "Appoinment", icon: <CalendarClock size={23} />, to: "/appointment" },
     {
       title: "Finance",

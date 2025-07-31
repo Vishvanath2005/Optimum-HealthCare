@@ -50,7 +50,7 @@ const App = () => {
                 <Route index element={<ViewLeads />} />
               </Route>
             </Route>
-            <Route path="/cms">
+            {/* <Route path="/cms">
               <Route index element={<Cms />} />
               <Route path="viewblog">
                 <Route index element={<ViewBlog />} />
@@ -58,7 +58,7 @@ const App = () => {
               <Route path="editblog">
                 <Route index element={<EditBlogs />} />
               </Route>
-            </Route>
+            </Route> */}
             <Route path="/reports" element={<Report />} />
             <Route path="/subscription" element={<SubscriptionPlans />} />
             <Route path="/setting">
