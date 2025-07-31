@@ -13,10 +13,22 @@ const CreateCampaign = ({ onclose }) => {
             <IoClose className="size-[24px]" />
           </button>
 
-          <h1 className="text-center font-semibold text-xl py-2 mb-4 dark:text-white text-black">Create Campaign</h1>
+          <h1 className="text-center font-semibold text-xl py-2 mb-4 dark:text-white text-black">
+            Create Campaign
+          </h1>
 
           <form className="grid grid-cols-1 sm:grid-cols-2 space-y-2 gap-4 dark:text-white text-black">
             {/* Channel */}
+
+            <div className="flex col-span-2 gap-5 justify-between items-center">
+              <label className=" font-medium">Channel Name</label>
+              <input
+                type="text"
+                placeholder="Channel"
+                className="p-2 rounded-md w-72 bg-transparent border border-gray-600 dark:placeholder:text-white placeholder:text-black"
+              />
+            </div>
+
             <div className="flex col-span-2 gap-5 justify-between items-center">
               <label className=" font-medium">Channel</label>
               <input
@@ -26,7 +38,6 @@ const CreateCampaign = ({ onclose }) => {
               />
             </div>
 
-         
             <div className="flex col-span-2 gap-5 justify-between items-center ">
               <label className=" font-medium">Start Date</label>
               <input
@@ -56,35 +67,6 @@ const CreateCampaign = ({ onclose }) => {
               />
             </div>
 
-            {/* Leads */}
-            <div className="flex col-span-2 gap-5 justify-between items-center">
-              <label className=" font-medium">Leads</label>
-              <input
-                type="text"
-                placeholder="Leads"
-                className="p-2 rounded-md w-72 bg-transparent border border-gray-600 dark:placeholder:text-white placeholder:text-black"
-              />
-            </div>
-
-            {/* CPL */}
-            <div className="flex col-span-2 gap-5 justify-between items-center ">
-              <label className=" font-medium">CPL</label>
-              <input
-                type="text"
-                placeholder="CPL"
-                className="p-2 rounded-md w-72 bg-transparent border border-gray-600 dark:placeholder:text-white placeholder:text-black"
-              />
-            </div>
-
-            {/* Link */}
-            <div className="flex col-span-2 gap-5 justify-between items-center">
-              <label className=" font-medium">Link</label>
-              <input
-                type="text"
-                placeholder="Link"
-                className="p-2 rounded-md w-72 bg-transparent border border-gray-600 dark:placeholder:text-white placeholder:text-black"
-              />
-            </div>
           </form>
 
           {/* Buttons */}
