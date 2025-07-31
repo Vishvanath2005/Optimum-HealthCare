@@ -113,7 +113,7 @@ const Layout = () => {
                       {menu.icon}
                     </span>
                     <p
-                      className={`${open && `hidden`} font-layout-font text-lg`}
+                      className={`${open && `hidden`} font-layout-font text-base`}
                     >
                       {menu.title}
                     </p>
