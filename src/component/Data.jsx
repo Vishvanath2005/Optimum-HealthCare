@@ -353,6 +353,19 @@ export const PatientsData = [
   {
     leadId: "#658957",
     name: "William",
+    age: 35,
+    gender: "Male",
+    treatment: "Knee Replacement",
+    consultationType: "In-person",
+    operationTime: "10:00 AM",
+    operationDate: "2025-08-10",
+    city: "Chennai",
+    surgeonName: "Dr. Arjun Rao",
+    hospitalName: "Apollo Hospital",
+    hospitalAddress: "123, Mount Road, Chennai",
+    amountPaid: 120000,
+    paymentMode: "Credit Card",
+    medicalCoordinator: "Anjali Mehta",
     phoneNumber: "95839 37825",
     emailId: "gjfjkgj@gmail.com",
     location: "Chennai",
@@ -361,12 +374,26 @@ export const PatientsData = [
   {
     leadId: "#658958",
     name: "Sophia",
+    age: 29,
+    gender: "Female",
+    treatment: "LASIK Surgery",
+    consultationType: "Online",
+    operationTime: "02:30 PM",
+    operationDate: "2025-08-15",
+    city: "Mumbai",
+    surgeonName: "Dr. Neha Kapoor",
+    hospitalName: "Vision Plus Clinic",
+    hospitalAddress: "45, Marine Drive, Mumbai",
+    amountPaid: 40000,
+    paymentMode: "UPI",
+    medicalCoordinator: "Ravi Sharma",
     phoneNumber: "98765 43210",
     emailId: "sophia@gmail.com",
     location: "Mumbai",
     status: "Pending",
   }
 ];
+
 
 export const AppointmentData = [
   {

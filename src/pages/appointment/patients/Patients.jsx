@@ -15,7 +15,8 @@ const Patients = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [editPatients, setEditPatients] = useState(false);
-  const [viewPatientModal, setViewPatientModal] = useState(false);  
+  const [viewPatientModal, setViewPatientModal] = useState(false);
+  const [selectedPatient, setSelectedPatient] = useState(null);
 
   const itemsPerPage = 10;
 
@@ -41,10 +42,7 @@ const Patients = () => {
   }, [searchTerm]);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedData = filteredData.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+  const paginatedData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div>
@@ -63,14 +61,7 @@ const Patients = () => {
           <thead>
             <tr className="font-semibold text-sm dark:bg-layout-dark bg-layout-light border-b-2 dark:border-overall_bg-dark border-overall_bg-light">
               <th className="p-3.5 rounded-l-lg">S.no</th>
-              {[
-                "Patient ID",
-                "Name",
-                "Phone Number",
-                "Email Id",
-                "Location",
-                "Status",
-              ].map((heading) => (
+              {["Patient ID", "Name", "Phone Number", "Email Id", "Location", "Status"].map((heading) => (
                 <th key={heading} className="p-3.5">
                   <h1 className="flex items-center justify-center gap-1">
                     {heading} <HiArrowsUpDown className="dark:text-white" />
@@ -84,10 +75,7 @@ const Patients = () => {
           <tbody className="dark:bg-layout-dark bg-layout-light rounded-2xl dark:text-gray-200 text-gray-600 cursor-default">
             {paginatedData.length > 0 ? (
               paginatedData.map((data, index) => (
-                <tr
-                  key={index}
-                  className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center"
-                >
+                <tr key={index} className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center">
                   <td className="rounded-l-lg">{startIndex + index + 1}</td>
                   <td>{data.leadId}</td>
                   <td>{data.name}</td>
@@ -98,13 +86,19 @@ const Patients = () => {
                   <td className="space-x-2 rounded-r-lg p-2.5">
                     <button
                       className="bg-blue-200 p-1.5 rounded"
-                      onClick={() => setEditPatients(true)}
+                      onClick={() => {
+                        setSelectedPatient(data);
+                        setEditPatients(true);
+                      }}
                     >
                       <Pencil size={16} className="text-blue-600" />
                     </button>
                     <button
                       className="bg-green-200 p-1.5 rounded"
-                      onClick={() => setViewPatientModal(true)}  
+                      onClick={() => {
+                        setSelectedPatient(data);
+                        setViewPatientModal(true);
+                      }}
                     >
                       <LuEye size={16} className="text-green-600" />
                     </button>
@@ -128,17 +122,23 @@ const Patients = () => {
         currentPage={currentPage}
         onPageChange={setCurrentPage}
       />
-      {editPatients && (
+
+      {editPatients && selectedPatient && (
         <Edit_Patients
+          patient={selectedPatient}
           onclose={() => {
             setEditPatients(false);
+            setSelectedPatient(null);
           }}
         />
       )}
-      {viewPatientModal && (  
-                <View_Patient
+
+      {viewPatientModal && selectedPatient && (
+        <View_Patient
+          patient={selectedPatient}
           onclose={() => {
             setViewPatientModal(false);
+            setSelectedPatient(null);
           }}
         />
       )}

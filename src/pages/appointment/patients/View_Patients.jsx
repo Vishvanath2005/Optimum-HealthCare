@@ -1,110 +1,67 @@
-import React from "react";
+import React, { useRef } from "react";
 import { IoClose } from "react-icons/io5";
+import domtoimage from "dom-to-image-more";
+import OPD_Details from "./OPD_Details";
 
-const View_Patients = ({ onclose }) => {
+const View_Patients = ({ patient, onclose }) => {
+  const exportRef = useRef();
+
+  const handleDownload = () => {
+    const element = exportRef.current;
+    domtoimage
+      .toPng(element, {
+        style: {
+          margin: 0,
+          padding: 0,
+          overflow: "visible",
+        },
+        height: element.scrollHeight,
+        width: element.scrollWidth,
+      })
+      .then((dataUrl) => {
+        const link = document.createElement("a");
+        link.download = `${patient.name}_OPD_Details.png`;
+        link.href = dataUrl;
+        link.click();
+      })
+      .catch((error) => {
+        console.error("Download failed:", error);
+      });
+  };
+
   return (
-    <div className=" font-layout-font fixed inset-0 flex justify-center items-center backdrop-blur-sm z-10">
-      <div className="dark:bg-layout-dark bg-layout-light rounded-lg drop-shadow-md dark:text-white w-fit h-fit">
+    <div className="fixed inset-0 flex justify-center items-center backdrop-blur-sm z-10 m-0 p-0">
+      <div className="dark:bg-layout-dark bg-layout-light rounded-lg drop-shadow-md dark:text-white w-fit h-fit m-0 px-4 py-3">
         <p
-          className="grid place-self-end -mx-4 -my-4 dark:bg-layout-dark bg-layout-light shadow-sm  py-2.5 px-2.5 rounded-full"
+          className="grid place-self-end -mx-8 -my-4 dark:bg-layout-dark bg-layout-light shadow-sm py-2.5 px-2.5 rounded-full"
           onClick={onclose}
         >
-          <IoClose className="size-[20px]" />
+          <IoClose size={20} />
         </p>
-        <div className="grid justify-center px-8 py-4 gap-6">
-          <p className="text-center font-semibold text-lg">Patient</p>
-          <div className="p-2">
-            <form className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            <div className="flex  col-span-2 justify-between items-center">
-                <label className=" font-medium col-span-1">
-                 Patient ID
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1  text-sm">
-                #2345</p>
-              </div>
-              <div className="flex  col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Name
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1   text-sm">
-                Dinesh Kumar</p>
-              </div>
-              <div className="flex  col-span-2 justify-between items-center gap-10">
-                <label className="  font-medium col-span-1">
-                  Phone number
-                </label>
 
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1  text-sm">
-                  7550378859
-                </p>
-              </div>
-              <div className="flex col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Email ID
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent  col-span-1   text-sm">
-                  vishva2202005@gamil.com
-                </p>
-              </div>{" "}
-              <div className="flex col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Age
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent  col-span-1   text-sm">
-                  18
-                </p>
-              </div>
-              <div className="flex col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Height
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent  col-span-1   text-sm">
-                  6ft
-                </p>
-              </div>
-              <div className="flex col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Weight
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1  text-sm">
-                  13.09
-                </p>
-              </div>
-              <div className="flex  col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Location
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1  text-sm">
-                  Chennai
-                </p>
-              </div>
-              <div className="flex  col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Address
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1  text-sm">
-                  Address
-                </p>
-              </div>
-              <div className="flex sm:col-span-2 justify-between items-center">
-                <label className="  font-medium col-span-1">
-                  Status
-                </label>
-                <p className="p-2 rounded-md w-52 bg-transparent col-span-1   text-sm">
-                  active
-                </p>
-              </div>
-            </form>
-          </div>
+        <div
+          ref={exportRef}
+          style={{
+            maxHeight: "700px",
+          }}
+          className="m-2  border rounded-2xl overflow-y-auto no-scrollbar dark:bg-layout-dark bg-white"
+        >
+          <OPD_Details patient={patient} />
         </div>
-        <div className="flex justify-end items-center gap-4 my-4 mx-6 text-sm font-normal">
-          <p
-            className="cursor-pointer border border-select_layout-dark text-select_layout-dark  px-6 py-1.5 rounded-sm"
-            onClick={onclose}
+
+        <div className="w-full flex justify-end gap-2 px-3">
+          <button
+            // onClick={handleDownload}
+            className="cursor-pointer  border border-select_layout-dark text-select_layout-dark  px-6 py-1.5 rounded-sm"
           >
-            Cancel
-          </p>
-      
+            Share
+          </button>
+          <button
+            onClick={handleDownload}
+            className="cursor-pointer  border border-select_layout-dark text-select_layout-dark  px-6 py-1.5 rounded-sm"
+          >
+            Download
+          </button>
         </div>
       </div>
     </div>
