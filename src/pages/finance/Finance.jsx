@@ -103,7 +103,7 @@ const Finance = () => {
                 <td>{data.totalBill}</td>
                 <td>{data.settledAmount}</td>
                 <td>{data.company}</td>
-                <td>{data.profits}</td>
+                <td>{((data.profits / data.totalBill) * 100).toFixed(0)}%</td>
                 <td className="pl-4 p-2.5 rounded-r-lg">
                   <div className="flex justify-center items-center gap-3">
                     <button
