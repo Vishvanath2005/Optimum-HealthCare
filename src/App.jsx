@@ -62,7 +62,7 @@ const App = () => {
             </Route> */}
             <Route path="/association" element={<Association />}/>
             <Route path="/reports" element={<Report />} />
-            <Route path="/subscription" element={<SubscriptionPlans />} />
+            {/* <Route path="/subscription" element={<SubscriptionPlans />} /> */}
             <Route path="/setting">
               <Route index element={<Settings />} />
               <Route path="addrole">

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import Pagination from "../../../component/Pagination";
 import { LuEye } from "react-icons/lu";
@@ -12,6 +12,8 @@ import Edit_leads from "./Edit_leads";
 import { useNavigate } from "react-router-dom";
 import Create_Appoinment from "./Create_Appoinment";
 import { RiStickyNoteAddLine } from "react-icons/ri";
+import { RiUserSharedLine } from "react-icons/ri";
+import TransferLeads from "./TransferLeads";
 
 const Leads_Tab = () => {
   const { searchTerm } = useSearch();
@@ -19,7 +21,16 @@ const Leads_Tab = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [Edit_lead, setEdit_lead] = useState(false);
   const [CreateAppoinment, setCreateAppoinment] = useState(false);
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
+  const [transferLeads, setTransferLeads] = useState(false);
 
+  const uniqueBDNames = useMemo(() => {
+    const names = leadData
+      .map((item) => item.bdName)
+      .filter((name) => name && name !== "");
+    return [...new Set(names)];
+  }, []);
   const navigate = useNavigate();
 
   const itemsPerPage = 10;
@@ -53,13 +64,46 @@ const Leads_Tab = () => {
     startIndex + itemsPerPage
   );
 
+  const handleSelectAll = () => {
+    if (!selectAll) {
+      const allIds = paginatedData.map((_, index) => index + startIndex);
+      setSelectedRows(allIds);
+    } else {
+      setSelectedRows([]);
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleRowSelect = (rowIndex) => {
+    if (selectedRows.includes(rowIndex)) {
+      setSelectedRows(selectedRows.filter((id) => id !== rowIndex));
+    } else {
+      setSelectedRows([...selectedRows, rowIndex]);
+    }
+  };
+
   return (
     <>
       <div className="relative">
         <div className="font-layout-font absolute -top-13 right-0 flex justify-end items-center gap-2 pb-2">
+          <button
+            onClick={() => selectedRows.length > 0 && setTransferLeads(true)}
+            disabled={selectedRows.length === 0}
+            className={`flex items-center gap-2 px-4 py-2 text-sm rounded-md 
+    ${
+      selectedRows.length === 0
+        ? "dark:bg-gray-500 bg-gray-400 text-white cursor-not-allowed"
+        : "bg-select_layout-dark dark:text-white text-white cursor-pointer"
+    }
+  `}
+          >
+            <RiUserSharedLine size={18} />
+            Transfer Leads
+          </button>
+
           <p
             onClick={() => setCreateAppoinment(true)}
-            className="cursor-pointer flex items-center dark:text-white gap-2 bg-select_layout-dark px-4 py-2 text-sm rounded-md"
+            className="cursor-pointer flex items-center text-white gap-2 bg-select_layout-dark px-4 py-2 text-sm rounded-md"
           >
             <RiStickyNoteAddLine size={18} />
             Create Appoinment
@@ -75,7 +119,16 @@ const Leads_Tab = () => {
         <table className="w-full xl:h-fit h-[703px] dark:text-white whitespace-nowrap">
           <thead>
             <tr className="font-semibold text-sm dark:bg-layout-dark bg-layout-light border-b-2 dark:border-overall_bg-dark border-overall_bg-light">
-              <th className="p-4 rounded-l-lg">S.no</th>
+              <th className="p-4 rounded-l-lg">
+                <input
+                  type="checkbox"
+                  className="accent-blue-600"
+                  checked={selectAll}
+                  onChange={handleSelectAll}
+                />
+              </th>
+
+              <th className="p-4">S.no</th>
               {[
                 "Lead ID",
                 "Lead Type",
@@ -102,7 +155,16 @@ const Leads_Tab = () => {
                   key={index}
                   className="border-b-2 dark:border-overall_bg-dark border-overall_bg-light text-center"
                 >
-                  <td className="rounded-l-lg">{index + 1}</td>
+                  <td className="rounded-l-lg">
+                    <input
+                      type="checkbox"
+                      className="accent-blue-600"
+                      checked={selectedRows.includes(index + startIndex)}
+                      onChange={() => handleRowSelect(index + startIndex)}
+                    />
+                  </td>
+
+                  <td>{index + 1}</td>
                   <td>{data.leadId}</td>
                   <td>{data.leadType}</td>
                   <td>{data.name}</td>
@@ -158,6 +220,15 @@ const Leads_Tab = () => {
           onclose={() => {
             setCreateAppoinment(false);
           }}
+        />
+      )}
+      {transferLeads && (
+        <TransferLeads
+          onclose={() => {
+            setTransferLeads(false);
+          }}
+          bdNames={uniqueBDNames}
+           selectedLeads={selectedRows.map((index) => filteredData[index])}
         />
       )}
     </>

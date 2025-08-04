@@ -53,7 +53,7 @@ const Layout = () => {
       to: "/finance",
     },
     { title: "Reports", icon: <FileBarChart size={23} />, to: "/reports" },
-    { title: "Subscription", icon: <Wallet size={23} />, to: "/subscription" },
+    // { title: "Subscription", icon: <Wallet size={23} />, to: "/subscription" },
     { title: "Settings", icon: <Settings size={23} />, to: "/setting" },
   ];
 
