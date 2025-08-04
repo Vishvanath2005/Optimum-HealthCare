@@ -82,6 +82,13 @@ const Leads_Tab = () => {
     }
   };
 
+  const handleTransferSave = () => {
+    // Clear selection and close modal
+    setSelectedRows([]);
+    setSelectAll(false);
+    setTransferLeads(false);
+  };
+
   return (
     <>
       <div className="relative">
@@ -224,11 +231,10 @@ const Leads_Tab = () => {
       )}
       {transferLeads && (
         <TransferLeads
-          onclose={() => {
-            setTransferLeads(false);
-          }}
+          onclose={() => setTransferLeads(false)}
           bdNames={uniqueBDNames}
-           selectedLeads={selectedRows.map((index) => filteredData[index])}
+          selectedLeads={selectedRows.map((index) => filteredData[index])}
+          onSave={handleTransferSave}
         />
       )}
     </>
