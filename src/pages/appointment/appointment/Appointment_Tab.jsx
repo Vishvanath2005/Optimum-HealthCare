@@ -14,6 +14,7 @@ import CreateAppointment from "./CreateAppointment";
 import { IoClose } from "react-icons/io5";
 import Completed from "./Completed";
 import Reschedule from "./Reschedule";
+import ViewAppoinment from "./ViewAppoinment";
 
 const EditAppointmentModal = ({ onclose }) => {
   return (
@@ -115,6 +116,7 @@ const Appointment_Tab = () => {
   const [viewCalendar, setViewCalendar] = useState(false);
   const [selectedStatus, setSelectedStatus] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isview, setIsview] = useState(false);
 
   const itemsPerPage = 10;
 
@@ -248,8 +250,9 @@ const Appointment_Tab = () => {
                         <button
                           className=" cursor-pointer bg-green-200 p-1.5 rounded-sm"
                           onClick={() => {
-                            setSelectedStatus(data.status);
-                            setIsModalOpen(true);
+                            // setSelectedStatus(data.status);
+                            // setIsModalOpen(true);
+                            setIsview(true)
                           }}
                         >
                           <LuEye size={16} className="text-green-600" />
@@ -288,10 +291,12 @@ const Appointment_Tab = () => {
           {isModalOpen && selectedStatus === "reschedule" && (
             <Reschedule onclose={() => setIsModalOpen(false)} />
           )}
-        
+          {isview && (<>
+           <ViewAppoinment onclose={() => setIsview(false)} />
+          </>)}
         </div>
       )}
-      {viewCalendar && <Calendar onclose = {() =>setViewCalendar(false)}/>}
+      {viewCalendar && <Calendar onclose={() => setViewCalendar(false)} />}
     </>
   );
 };

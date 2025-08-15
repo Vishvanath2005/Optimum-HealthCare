@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Logo from "../../../assets/images/icon.png";
 import Logo_L from "../../../assets/images/Logo(light).png";
 import Logo_D from "../../../assets/images/Logo(dark).png";
-
+import { PatientsData } from "../../../component/Data";
 const OPD_Details = ({ patient }) => {
   const [open, setOpen] = useState(false);
 
