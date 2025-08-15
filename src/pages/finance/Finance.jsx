@@ -112,12 +112,12 @@ const Finance = () => {
                     >
                       <Pencil size={16} />
                     </button>
-                    <button
+                    {/* <button
                       onClick={() => setDeleteModal(true)}
                       className=" cursor-pointer p-1 rounded-sm  bg-red-200 text-red-500"
                     >
                       <FiTrash2 size={16} />
-                    </button>
+                    </button> */}
                   </div>
                 </td>
               </tr>
