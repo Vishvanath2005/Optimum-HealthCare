@@ -8,6 +8,7 @@ import AddFollowUp from "./AddFollowUp";
 import profile from "../../../assets/images/profile.jpg";
 import EditLeadDetails from "./EditLeadDetails";
 import MultiDocuments from "./MultiDocuments";
+import { UserPlus } from "lucide-react";
 
 const ViewLeads = () => {
   const navigate = useNavigate();
@@ -45,7 +46,7 @@ const ViewLeads = () => {
             onClick={() => setAddFollowUp(true)}
             className="font-normal flex  items-center  gap-2 text-sm bg-select_layout-dark rounded-md text-white px-6 py-2.5 "
           >
-            <FaRegFileAlt size={20} /> Add FollowUp
+            <UserPlus  size={20} /> Add FollowUp
           </button>
         </div>
         <div className="grid  gap-4 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 my-4 ">
