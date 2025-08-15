@@ -559,7 +559,7 @@ export const RoleData =[
 export const hospitalData = [
   {
     hospitalName: "City General Hospital",
-    status: "New Lead",
+    status: "Active",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -568,7 +568,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Follow up 1",
+    status: "Active",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -577,7 +577,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Follow up 2",
+    status: "Active",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -586,7 +586,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "DNP 1",
+    status: "Inactive",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -595,7 +595,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "DNP 2",
+    status: "Inactive",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -604,7 +604,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "DNP Exh",
+    status: "Inactive",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -613,7 +613,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Hot lead",
+    status: "Active",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -622,7 +622,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Junk lead",
+    status: "Inactive",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -631,7 +631,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Out of City",
+    status: "Inactive",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -640,7 +640,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Not Interested",
+    status: "Inactive",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -649,7 +649,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "New Lead",
+    status: "Active",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -658,7 +658,7 @@ export const hospitalData = [
   },
   {
     hospitalName: "City General Hospital",
-    status: "Follow up 1",
+    status: "Active",
     city: "Chennai",
     address: "Padur, Chennai",
     specialization: "Cardiology",
@@ -667,10 +667,11 @@ export const hospitalData = [
   }
 ];
 
+
 export const doctorData = [
   {
     doctorName: "Mr. Ajay",
-    status: "New Lead",
+    status: "Active",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -679,7 +680,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Follow up 1",
+    status: "Active",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -688,7 +689,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Follow up 2",
+    status: "Active",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -697,7 +698,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "DNP 1",
+    status: "Inactive",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -706,7 +707,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "DNP 2",
+    status: "Inactive",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -715,7 +716,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "DNP Exh",
+    status: "Inactive",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -724,7 +725,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Hot lead",
+    status: "Active",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -733,7 +734,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Junk lead",
+    status: "Inactive",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -742,7 +743,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Out of City",
+    status: "Inactive",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -751,7 +752,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Not Intrested",
+    status: "Inactive",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -760,7 +761,7 @@ export const doctorData = [
   },
   {
     doctorName: "Mr. Ajay",
-    status: "Pending",
+    status: "Active",
     city: "Chennai",
     experience: 5,
     specialization: "Cardiology",
@@ -768,6 +769,7 @@ export const doctorData = [
     pendingPayment: 200,
   },
 ];
+
 
 
 

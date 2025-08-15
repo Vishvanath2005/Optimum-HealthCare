@@ -49,17 +49,8 @@ const Hospital = () => {
   );
 
   const statusColorMap = {
-    "New Lead": "font-bold text-blue-700",
-    "Follow up 1": "font-bold text-indigo-700",
-    "Follow up 2": "font-bold text-indigo-800",
-    "DNP 1": "font-bold text-yellow-800",
-    "DNP 2": "font-bold text-yellow-900",
-    "DNP Exh": "font-bold text-orange-800",
-    "Hot lead": "font-bold text-red-700",
-    "Junk lead": "font-bold text-gray-800",
-    "Out of City": "font-bold text-pink-700",
-    "Not Interested": "font-bold text-red-900",
-    Pending: "font-bold text-purple-700",
+    Active: "font-bold text-green-700",
+    Inactive: "font-bold text-red-700",
   };
 
   return (
@@ -80,12 +71,12 @@ const Hospital = () => {
               <th className="p-3.5 rounded-l-lg">S.no</th>
               {[
                 "Hospital Name",
-                "Status",
                 "City",
                 "Address",
                 "Specialization",
                 "Contact",
                 "Overdue Amount",
+                "Status",
               ].map((heading) => (
                 <th key={heading} className="p-5">
                   <h1 className="flex items-center justify-center gap-1">
@@ -107,16 +98,6 @@ const Hospital = () => {
                     {(currentPage - 1) * itemsPerPage + index + 1}
                   </td>
                   <td>{data.hospitalName}</td>
-                  <td>
-                    <span
-                      className={`px-2 py-1 rounded-full text-sm font-bold ${
-                        statusColorMap[data.status] ||
-                        " text-gray-700"
-                      }`}
-                    >
-                      {data.status}
-                    </span>
-                  </td>
                   <td>{data.city}</td>
                   <td>{data.address}</td>
                   <td>{data.specialization}</td>
@@ -126,8 +107,17 @@ const Hospital = () => {
                       ? `₹${data.overdue.toLocaleString()}`
                       : "No Due"}
                   </td>
+                  <td>
+                    <span
+                      className={`px-2 py-1 rounded-full text-sm ${
+                        statusColorMap[data.status] || "text-gray-700"
+                      }`}
+                    >
+                      {data.status}
+                    </span>
+                  </td>
 
-                 <td className="pl-4 p-2.5 rounded-r-lg">
+                  <td className="pl-4 p-2.5 rounded-r-lg">
                     <button className="cursor-pointer bg-[#BAFFBA] text-green-600 w-fit rounded-sm py-1.5 px-1.5">
                       <LuEye size={16} />
                     </button>{" "}
