@@ -189,7 +189,11 @@ const Leads_Tab = () => {
                       <Pencil size={16} className="text-blue-600" />
                     </button>
                     <button
-                      onClick={() => navigate("viewleads")}
+                      onClick={() =>
+                        navigate("viewleads", {
+                          state: { lead: data },
+                        })
+                      }
                       className="cursor-pointer bg-green-200 p-1.5 rounded-sm"
                     >
                       <LuEye size={16} className="text-green-600" />
