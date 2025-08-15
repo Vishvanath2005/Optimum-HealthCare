@@ -8,6 +8,8 @@ import { TbFileExport } from "react-icons/tb";
 import { useSearch } from "../../../component/SearchBar";
 import { hospitalData } from "../../../component/Data";
 import { useNavigate } from "react-router-dom";
+import { Pencil } from "lucide-react";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const Hospital = () => {
   const { searchTerm } = useSearch();
@@ -125,11 +127,15 @@ const Hospital = () => {
                       : "No Due"}
                   </td>
 
-                  <td className="pl-4 p-2.5 rounded-r-lg">
-                    <button
-                      className="cursor-pointer bg-[#BAFFBA] text-green-600 w-fit rounded-sm py-1.5 px-1.5"
-                    >
+                 <td className="pl-4 p-2.5 rounded-r-lg">
+                    <button className="cursor-pointer bg-[#BAFFBA] text-green-600 w-fit rounded-sm py-1.5 px-1.5">
                       <LuEye size={16} />
+                    </button>{" "}
+                    <button className="cursor-pointer bg-blue-200 w-fit rounded-sm py-1.5 px-1.5">
+                      <Pencil size={16} className="text-blue-600" />
+                    </button>{" "}
+                    <button className="cursor-pointer bg-pink-200 text-red-500 w-fit rounded-sm py-1.5 px-1.5">
+                      <RiDeleteBinLine size={16} />
                     </button>
                   </td>
                 </tr>

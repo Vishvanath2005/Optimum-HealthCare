@@ -9,6 +9,7 @@ import { useSearch } from "../../../component/SearchBar";
 import { PatientsData } from "../../../component/Data";
 import Edit_Patients from "./Edit_Patients";
 import View_Patient from "./View_Patients";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const Patients = () => {
   const { searchTerm } = useSearch();
@@ -94,13 +95,13 @@ const Patients = () => {
                       <Pencil size={16} className="text-blue-600" />
                     </button>
                     <button
-                      className="bg-green-200 p-1.5 rounded"
+                      className="bg-pink-200 text-red-500 p-1.5 rounded"
                       onClick={() => {
                         setSelectedPatient(data);
                         setViewPatientModal(true);
                       }}
                     >
-                      <LuEye size={16} className="text-green-600" />
+                      <RiDeleteBinLine  size={16} />
                     </button>
                   </td>
                 </tr>

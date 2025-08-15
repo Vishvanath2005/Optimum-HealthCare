@@ -2,12 +2,13 @@ import React, { useEffect, useState } from "react";
 import { HiArrowsUpDown } from "react-icons/hi2";
 import Pagination from "../../../component/Pagination";
 import { LuEye } from "react-icons/lu";
-import { TbBrandCampaignmonitor } from "react-icons/tb";
+import { Pencil } from "lucide-react";
 import Filter from "../../../component/Filter";
 import { TbFileExport } from "react-icons/tb";
 import { useSearch } from "../../../component/SearchBar";
 import { doctorData } from "../../../component/Data";
 import { useNavigate } from "react-router-dom";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 const Doctor = () => {
   const { searchTerm } = useSearch();
@@ -46,7 +47,7 @@ const Doctor = () => {
     startIndex + itemsPerPage
   );
 
- const statusColorMap = {
+  const statusColorMap = {
     "New Lead": "font-bold text-blue-700",
     "Follow up 1": "font-bold text-indigo-700",
     "Follow up 2": "font-bold text-indigo-800",
@@ -108,8 +109,7 @@ const Doctor = () => {
                   <td>
                     <span
                       className={`px-2 py-1 rounded-full text-sm font-bold ${
-                        statusColorMap[data.status] ||
-                        " text-gray-700"
+                        statusColorMap[data.status] || " text-gray-700"
                       }`}
                     >
                       {data.status}
@@ -127,10 +127,14 @@ const Doctor = () => {
                       : "No Pending"}
                   </td>
                   <td className="pl-4 p-2.5 rounded-r-lg">
-                    <button
-                      className="cursor-pointer bg-[#BAFFBA] text-green-600 w-fit rounded-sm py-1.5 px-1.5"
-                    >
+                    <button className="cursor-pointer bg-[#BAFFBA] text-green-600 w-fit rounded-sm py-1.5 px-1.5">
                       <LuEye size={16} />
+                    </button>{" "}
+                    <button className="cursor-pointer bg-blue-200 w-fit rounded-sm py-1.5 px-1.5">
+                      <Pencil size={16} className="text-blue-600" />
+                    </button>{" "}
+                    <button className="cursor-pointer bg-pink-200 text-red-500 w-fit rounded-sm py-1.5 px-1.5">
+                      <RiDeleteBinLine size={16} />
                     </button>
                   </td>
                 </tr>
