@@ -7,10 +7,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import AddFollowUp from "./AddFollowUp";
 import profile from "../../../assets/images/profile.jpg";
 import EditLeadDetails from "./EditLeadDetails";
+import MultiDocuments from "./MultiDocuments";
 
 const ViewLeads = () => {
   const navigate = useNavigate();
   const [addFollowUp, setAddFollowUp] = useState(false);
+  const [multidocuments, setMultidocuments] = useState(false);
   const [editLeadsDetails, setEditLeadsDetails] = useState(false);
   const location = useLocation();
   const { lead } = location.state || {};
@@ -32,7 +34,13 @@ const ViewLeads = () => {
     <>
       <NavBar title="Leads" pagetitle="View Leads" />
       <div className="font-layout-font mb-3 overflow-auto no-scrollbar">
-        <div className="flex justify-end my-2  ">
+        <div className="flex justify-end my-2 gap-2 ">
+          <button
+            onClick={() => setMultidocuments(true)}
+            className="font-normal flex  items-center  gap-2 text-sm bg-select_layout-dark rounded-md text-white px-6 py-2.5 "
+          >
+            <FaRegFileAlt size={20} /> Add Documents
+          </button>
           <button
             onClick={() => setAddFollowUp(true)}
             className="font-normal flex  items-center  gap-2 text-sm bg-select_layout-dark rounded-md text-white px-6 py-2.5 "
@@ -41,7 +49,7 @@ const ViewLeads = () => {
           </button>
         </div>
         <div className="grid  gap-4 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 my-4 ">
-          <div className=" bg-[#454545] rounded-md drop-shadow-lg  ">
+          <div className=" dark:bg-[#454545] bg-purple-100 rounded-md drop-shadow-lg  ">
             <div className=" flex justify-between h-32"></div>
             <div className="dark:bg-layout-dark bg-layout-light flex justify-between items-center rounded-b-md p-4 ">
               <div className="mx-2 py-6">
@@ -143,6 +151,7 @@ const ViewLeads = () => {
         </p>
       </div>
       {addFollowUp && <AddFollowUp onclose={() => setAddFollowUp(false)} />}
+      {multidocuments && <MultiDocuments onclose={() => setMultidocuments(false)} />}
       {editLeadsDetails && (
         <EditLeadDetails onclose={() => setEditLeadsDetails(false)} />
       )}
