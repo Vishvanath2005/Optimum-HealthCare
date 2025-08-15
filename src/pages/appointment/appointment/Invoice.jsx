@@ -27,9 +27,10 @@ const Invoice = () => {
     <>
       <NavBar
         title="Appointment"
-        pagetitle={activeTab === "2" ? "Appointments" : "Patients"}
+        // pagetitle={activeTab === "2" ? "Appointments" : "Patients"}
+        pagetitle="Appoinments"
       />
-      <div className="cursor-pointer flex justify-between items-center">
+      {/* <div className="cursor-pointer flex justify-between items-center">
         <div className="font-layout-font flex gap-2 py-2 dark:text-white">
           <p
             className={`flex gap-2 items-center px-4 py-3 font-semibold rounded-sm text-sm ${
@@ -50,8 +51,8 @@ const Invoice = () => {
             <TbCalendarTime size={24} /> Appointments
           </p>
         </div>
-      </div>
-      <div className="relative">
+      </div> */}
+      <div className="relative mt-16">
         <div className="font-layout-font absolute -top-13 right-0 flex justify-end items-center gap-2 pb-2">
           <p   onClick={handleExport} className="cursor-pointer flex items-center gap-1.5 dark:text-white dark:bg-layout-dark bg-layout-light px-4 py-2 rounded-md">
             <TbFileExport />
