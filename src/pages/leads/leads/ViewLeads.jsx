@@ -46,12 +46,12 @@ const ViewLeads = () => {
             onClick={() => setAddFollowUp(true)}
             className="font-normal flex  items-center  gap-2 text-sm bg-select_layout-dark rounded-md text-white px-6 py-2.5 "
           >
-            <UserPlus  size={20} /> Add FollowUp
+            <UserPlus size={20} /> Add FollowUp
           </button>
         </div>
         <div className="grid  gap-4 lg:grid-cols-2 md:grid-cols-1 grid-cols-1 my-4 ">
           <div className=" dark:bg-[#454545] bg-purple-100 rounded-md drop-shadow-lg  ">
-            <div className=" flex justify-between h-32"></div>
+            <div className=" flex justify-between h-48"></div>
             <div className="dark:bg-layout-dark bg-layout-light flex justify-between items-center rounded-b-md p-4 ">
               <div className="mx-2 py-6">
                 <span className="drop-shadow-md shadow-lg grid -mt-22  text-white font-semibold text-4xl bg-overall_bg-dark rounded-full  w-24 h-24 items-center justify-center ">
@@ -79,57 +79,81 @@ const ViewLeads = () => {
               </div>
             </div>
           </div>
-          <div className="  dark:bg-layout-dark bg-layout-light dark:text-white px-8 py-6 rounded-md  drop-shadow-lg row-span-2   ">
-            <p className="font-semibold ">Follow Up</p>
-            <div>
-              <p className="font-semibold  flex  gap-4 mt-6">
-                {" "}
-                <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
-                  {" "}
-                  <FaRegFileAlt />
-                </span>
-                Next Follow up on 30/09/2024
-              </p>
-              <p className=" text-xs mx-12 dark:text-gray-400 font-extralight ">
-                Note
-              </p>
-              <p className=" text-sm mx-12 font-extralight dark:text-gray-50">
-                Ravikumar 27/09/2024,10:00am
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold  flex  gap-4 mt-6">
-                {" "}
-                <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
-                  {" "}
-                  <FaRegFileAlt />
-                </span>
-                Next Follow up on 30/09/2024
-              </p>
-              <p className=" text-xs mx-12 dark:text-gray-400 font-extralight ">
-                Note
-              </p>
-              <p className=" text-sm mx-12 font-extralight dark:text-gray-50">
-                Ravikumar 27/09/2024,10:00am
-              </p>
-            </div>
-            <div>
-              <p className="font-semibold  flex  gap-4 mt-6">
-                {" "}
-                <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
-                  {" "}
-                  <FaRegFileAlt />
-                </span>
-                Next Follow up on 30/09/2024
-              </p>
-              <p className=" text-xs mx-12 dark:text-gray-400 font-extralight ">
-                Note
-              </p>
-              <p className=" text-sm mx-12 font-extralight dark:text-gray-100">
-                Ravikumar 27/09/2024,10:00am
-              </p>
+          <div className="dark:bg-layout-dark bg-layout-light dark:text-white px-8 py-6 rounded-md drop-shadow-lg">
+            <p className="font-semibold">Follow Up</p>
+            <div className="mt-4 space-y-6 overflow-y-auto h-64 no-scrollbar pr-2">
+              <div>
+                <p className="font-semibold flex gap-4">
+                  <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
+                    <FaRegFileAlt />
+                  </span>
+                  Next Follow up on 30/09/2024
+                </p>
+                <p className="text-xs mx-12 dark:text-gray-400 font-extralight">
+                  Note
+                </p>
+                <p className="text-sm mx-12 font-extralight dark:text-gray-50">
+                  Ravikumar 27/09/2024,10:00am
+                </p>
+              </div>
+               <div>
+                <p className="font-semibold flex gap-4">
+                  <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
+                    <FaRegFileAlt />
+                  </span>
+                  Next Follow up on 30/09/2024
+                </p>
+                <p className="text-xs mx-12 dark:text-gray-400 font-extralight">
+                  Note
+                </p>
+                <p className="text-sm mx-12 font-extralight dark:text-gray-50">
+                  Ravikumar 27/09/2024,10:00am
+                </p>
+              </div>
+               <div>
+                <p className="font-semibold flex gap-4">
+                  <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
+                    <FaRegFileAlt />
+                  </span>
+                  Next Follow up on 30/09/2024
+                </p>
+                <p className="text-xs mx-12 dark:text-gray-400 font-extralight">
+                  Note
+                </p>
+                <p className="text-sm mx-12 font-extralight dark:text-gray-50">
+                  Ravikumar 27/09/2024,10:00am
+                </p>
+              </div> <div>
+                <p className="font-semibold flex gap-4">
+                  <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
+                    <FaRegFileAlt />
+                  </span>
+                  Next Follow up on 30/09/2024
+                </p>
+                <p className="text-xs mx-12 dark:text-gray-400 font-extralight">
+                  Note
+                </p>
+                <p className="text-sm mx-12 font-extralight dark:text-gray-50">
+                  Ravikumar 27/09/2024,10:00am
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold flex gap-4">
+                  <span className="bg-blue-200 text-blue-400 px-2 py-2 rounded">
+                    <FaRegFileAlt />
+                  </span>
+                  Next Follow up on 30/09/2024
+                </p>
+                <p className="text-xs mx-12 dark:text-gray-400 font-extralight">
+                  Note
+                </p>
+                <p className="text-sm mx-12 font-extralight dark:text-gray-50">
+                  Ravikumar 27/09/2024,10:00am
+                </p>
+              </div>
             </div>
           </div>
+
           <div className=" grid text-sm  dark:bg-layout-dark bg-layout-light dark:text-white rounded-md drop-shadow-lg px-8 py-8 gap-2 ">
             <p className="mb-3 font-semibold">Leads Details</p>
             {fields.map((item, idx) => (
@@ -140,6 +164,9 @@ const ViewLeads = () => {
                 </span>
               </div>
             ))}
+          </div>
+          <div className=" grid text-sm  dark:bg-layout-dark bg-layout-light dark:text-white rounded-md drop-shadow-lg px-8 py-8 gap-2 ">
+            <p className="mb-3 font-semibold">Added Documents</p>
           </div>
         </div>
       </div>
@@ -152,7 +179,9 @@ const ViewLeads = () => {
         </p>
       </div>
       {addFollowUp && <AddFollowUp onclose={() => setAddFollowUp(false)} />}
-      {multidocuments && <MultiDocuments onclose={() => setMultidocuments(false)} />}
+      {multidocuments && (
+        <MultiDocuments onclose={() => setMultidocuments(false)} />
+      )}
       {editLeadsDetails && (
         <EditLeadDetails onclose={() => setEditLeadsDetails(false)} />
       )}
