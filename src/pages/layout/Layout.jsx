@@ -41,7 +41,7 @@ const Layout = () => {
     },
     // { title: "CMS", icon: <Receipt size={23} />, to: "/cms" },
     { title: "Association", icon: <Receipt size={23} />, to: "/association" },
-    { title: "Appoinment", icon: <CalendarClock size={23} />, to: "/appointment" },
+    { title: "Appointment", icon: <CalendarClock size={23} />, to: "/appointment" },
     {
       title: "Finance",
       icon: (
