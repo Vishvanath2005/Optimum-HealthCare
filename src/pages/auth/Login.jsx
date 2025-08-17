@@ -61,7 +61,7 @@ const Login = () => {
               Login
             </p>
           </form>
-          <p className="text-center cursor-pointer text-sm py-4">
+          {/* <p className="text-center cursor-pointer text-sm py-4">
             Don’t have an account?{" "}
             <span
             onClick={() =>navigate("/")}
@@ -69,7 +69,7 @@ const Login = () => {
             >
               Sign up
             </span>
-          </p>
+          </p> */}
         </div>
       </div>
     </>
