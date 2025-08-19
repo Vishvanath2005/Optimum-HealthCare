@@ -22,6 +22,8 @@ import ViewCampaign from "./pages/leads/campaign/ViewCampaign";
 import ViewLeads from "./pages/leads/leads/ViewLeads";
 import Invoice from "./pages/appointment/appointment/Invoice";
 import Association from "./pages/association/Association";
+import Hr from "./pages/hr/Hr";
+import Admin_Dashboard from "./pages/admin_dashboard/Admin_Dashboard";
 
 const App = () => {
   return (
@@ -32,7 +34,8 @@ const App = () => {
           <Route path="/" element={<Login />} />
           <Route path="/forgotpassword" element={<ForgotPassword />} />
           <Route path="/" element={<Layout />}>
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route path="/admin_dashboard" element={<Admin_Dashboard />} />
             <Route path="/appointment">
               <Route index element={<Appointment />} />
               <Route path="invoice">
@@ -40,6 +43,7 @@ const App = () => {
               </Route>
             </Route>
             {/* <Route path="/gmb" element={<Gmb />} /> */}
+            <Route path="/hr" element={<Hr />} />
             <Route path="/finance" element={<Finance />} />
             <Route path="/editgmb" element={<EditGmbSet />} />
             <Route path="/leads">

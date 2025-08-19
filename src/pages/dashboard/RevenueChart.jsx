@@ -25,7 +25,7 @@ const data = [
 
 const RevenueChart = () => {
   return (
-    <div className=" p-4  dark:text-white">
+    <div className=" p-4 border dark:text-white">
       <h2 className="text-lg mb-2 font-semibold">Monthly Revenue</h2>
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data}>

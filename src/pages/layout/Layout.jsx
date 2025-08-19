@@ -17,6 +17,7 @@ import Logo from "../../assets/images/icon.png";
 import Logo_L from "../../assets/images/Logo(light).png";
 import Logo_D from "../../assets/images/Logo(dark).png";
 import NavBar from "../../component/NavBar";
+import { TbAddressBook } from "react-icons/tb";
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
@@ -26,7 +27,7 @@ const Layout = () => {
     {
       title: "Dashboard",
       icon: <LayoutDashboard size={23} />,
-      to: "/dashboard",
+      to: "/admin_dashboard",
     },
     // { title: "GMB", icon: <FileWarning size={23} />, to: "/gmb" },
     {
@@ -52,6 +53,7 @@ const Layout = () => {
       ),
       to: "/finance",
     },
+    { title: "HR", icon: <TbAddressBook  size={23} />, to: "/hr" },
     { title: "Reports", icon: <FileBarChart size={23} />, to: "/reports" },
     // { title: "Subscription", icon: <Wallet size={23} />, to: "/subscription" },
     { title: "Settings", icon: <Settings size={23} />, to: "/setting" },
