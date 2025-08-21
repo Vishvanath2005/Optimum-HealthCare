@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../component/NavBar";
+import NavBar from "../../../component/NavBar";
 import { TbProgress } from "react-icons/tb";
 import { Calendar } from "lucide-react";
 import {

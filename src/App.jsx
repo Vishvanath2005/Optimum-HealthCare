@@ -23,7 +23,7 @@ import ViewLeads from "./pages/leads/leads/ViewLeads";
 import Invoice from "./pages/appointment/appointment/Invoice";
 import Association from "./pages/association/Association";
 import Hr from "./pages/hr/Hr";
-import Admin_Dashboard from "./pages/admin_dashboard/Admin_Dashboard";
+import Admin_Dashboard from "./pages/dashboard/admin_dashboard/Admin_Dashboard";
 
 const App = () => {
   return (
