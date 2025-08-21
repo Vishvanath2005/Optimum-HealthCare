@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBar from "../../../component/NavBar";
 import { profiledetailsData } from "../../../component/Data";
 import { ClipboardPenLine, Pencil } from "lucide-react";
+import profile from "../../../assets/images/profile.jpg";
 import Apply_Leave from "./Apply_Leave";
 import Edit_Profile from "./Edit_Profile";
 const Profile = () => {
@@ -56,7 +57,7 @@ const Profile = () => {
         <div className="lg:col-span-5 flex flex-col gap-3  rounded-lg text-white">
           <div className="flex justify-between lg:mb-2  dark:bg-layout-dark bg-layout-light text-black dark:text-white rounded-lg p-4">
             <div className="flex items-center gap-4 ">
-              <p className="dark:bg-overall_bg-dark bg-overall_bg-light w-24 h-24 rounded-md"></p>
+              <img className=" w-24 h-24 rounded-md border border-gray-500" src={profile} alt="" />
               <span>
                 <p className="font-bold text-xl">Name</p>
                 <p className="text-sm">
