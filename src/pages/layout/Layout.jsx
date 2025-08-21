@@ -27,7 +27,7 @@ const Layout = () => {
     {
       title: "Dashboard",
       icon: <LayoutDashboard size={23} />,
-      to: "/admin_dashboard",
+      to: "/dashboard",
     },
     // { title: "GMB", icon: <FileWarning size={23} />, to: "/gmb" },
     {
