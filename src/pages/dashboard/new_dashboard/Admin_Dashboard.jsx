@@ -250,7 +250,7 @@ const Admin_Dashboard = () => {
             <h2 className="font-semibold mb-3">Top 5 Performer of the Week</h2>
             <div className="space-y-3">
               {performers.map((doc, idx) => (
-                <div key={idx} className="flex justify-between items-center bg-overall_bg-dark px-2 rounded-md py-1">
+                <div key={idx} className="flex justify-between items-center dark:bg-overall_bg-dark bg-gray-200 px-2 rounded-md py-1">
                   <p className="flex flex-col text-sm">
                     <span>{doc.name}</span>
                     <span className="text-gray-400">{doc.dept}</span>

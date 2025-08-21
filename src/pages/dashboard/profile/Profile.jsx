@@ -5,9 +5,14 @@ import { ClipboardPenLine, Pencil } from "lucide-react";
 import profile from "../../../assets/images/profile.jpg";
 import Apply_Leave from "./Apply_Leave";
 import Edit_Profile from "./Edit_Profile";
+import Dropdown from "../../../component/Dropdown";
+import { Navigate, useNavigate } from "react-router-dom";
+import Change_Password from "./Change_Password";
 const Profile = () => {
+  const navigate = useNavigate();
   const [apply_Leave, setApplyLeave] = useState(false);
   const [editprofile, setEditprofile] = useState(false);
+  const [changepassword, setChangepassword] = useState(false);
 
   const profileFields = [
     { label: "Employee ID", key: "employeeId" },
@@ -42,6 +47,21 @@ const Profile = () => {
     },
   ];
 
+   const dropdownItems = [
+    {
+      label: "Edit Profile",
+      onClick: () => setEditprofile(true),
+    },
+    {
+      label: "Change Password",
+      onClick: () => setChangepassword(true),
+    },
+    {
+      label: "Logout",
+      onClick: () => navigate('/'),
+    },
+  ];
+
   return (
     <div>
       <NavBar title="Dashboard" pagetitle="Profile" />
@@ -68,8 +88,8 @@ const Profile = () => {
                 </p>
               </span>
             </div>
-            <div className="p-2"onClick={()=>{setEditprofile(true)}}>
-              <Pencil size={16} />
+            <div className="p-2">
+              <Dropdown items={dropdownItems} />
             </div>
           </div>
           <div className="dark:bg-layout-dark bg-layout-light text-black dark:text-white rounded-lg p-6">
@@ -131,6 +151,7 @@ const Profile = () => {
       </div>
       {apply_Leave && (<Apply_Leave onclose={()=>{setApplyLeave(false)}}/>)}
       {editprofile && (<Edit_Profile onclose={()=>{setEditprofile(false)}}/>)}
+      {changepassword && (<Change_Password onclose={()=>{setChangepassword(false)}}/>)}
     </div>
   );
 };

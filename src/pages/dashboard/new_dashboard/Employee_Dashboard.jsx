@@ -178,7 +178,10 @@ const Employee_Dashboard = () => {
                       </td>
                       <td className="p-2 text-sm ">{follow_up.date}</td>
                       <td className="p-2 text-sm w-32 px-5 items-center rounded-r-md">
-                      <p className="border w-28 dark:bg-overall_bg-dark bg-overall_bg-light text-gray-600 dark:text-white font-medium  dark:border-layout-dark border-layout-light rounded-md py-1"> {follow_up.status}</p> 
+                        <p className="border w-28 dark:bg-overall_bg-dark bg-overall_bg-light text-gray-600 dark:text-white font-medium  dark:border-layout-dark border-layout-light rounded-md py-1">
+                          {" "}
+                          {follow_up.status}
+                        </p>
                       </td>
                     </tr>
                   ))}
@@ -204,10 +207,14 @@ const Employee_Dashboard = () => {
                       key={idx}
                       className="dark:bg-black/30 border-b-2 dark:border-overall_bg-dark border-overall_bg-light bg-layout-light rounded-lg text-center"
                     >
-                     <td className="px-2 py-3 text-sm rounded-l-md">{appt.patient}</td>
+                      <td className="px-2 py-3 text-sm rounded-l-md">
+                        {appt.patient}
+                      </td>
                       <td className="p-2">{appt.department}</td>
                       <td className="p-2">{appt.appointmentDate}</td>
-                      <td className="p-2 text-sm rounded-r-md">{appt.doctor}</td>
+                      <td className="p-2 text-sm rounded-r-md">
+                        {appt.doctor}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -216,12 +223,20 @@ const Employee_Dashboard = () => {
           </div>
         </div>
         <div className="lg:col-span-3 space-y-3 mt-6 lg:mt-0">
-           <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl shadow">
+          <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl shadow">
             <h2 className="font-semibold mb-2">Star Performer of the Week</h2>
             <center>
-              <p className="text-lg font-bold flex justify-center">Dr. Olivia Bennett <span className="flex items-center ml-2 gap-1 px-1 text-sm dark:bg-overall_bg-dark bg-overall_bg-light rounded-3xl "> 4.9 <FaStar size={14} className="text-yellow-400" /></span> </p>
+              <p className="text-lg font-bold flex justify-center">
+                Dr. Olivia Bennett{" "}
+                <span className="flex items-center ml-2 gap-1 px-2 text-sm dark:bg-overall_bg-dark bg-overall_bg-light rounded-3xl ">
+                  {" "}
+                  4.9 <FaStar size={14} className="text-yellow-400" />
+                </span>{" "}
+              </p>
               <p className="text-xs text-gray-400 py-1">Neurology</p>
-              <p className="text-xs text-gray-400 flex items-center justify-center">Top Rated Doctor</p>
+              <p className="text-xs text-gray-400 flex items-center justify-center">
+                Top Rated Doctor
+              </p>
             </center>
           </div>
           <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl">
@@ -250,8 +265,6 @@ const Employee_Dashboard = () => {
               rows={4}
             ></textarea>
           </div>
-
-         
         </div>
       </div>
     </div>
