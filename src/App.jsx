@@ -23,9 +23,10 @@ import ViewLeads from "./pages/leads/leads/ViewLeads";
 import Invoice from "./pages/appointment/appointment/Invoice";
 import Association from "./pages/association/Association";
 import Hr from "./pages/hr/Hr";
-import Admin_Dashboard from "./pages/dashboard/new_dashboard/Admin_Dashboard";
-import Employee_Dashboard from "./pages/dashboard/new_dashboard/Employee_Dashboard";
+// import Admin_Dashboard from "./pages/dashboard/new_dashboard/Admin_Dashboard";
+// import Employee_Dashboard from "./pages/dashboard/new_dashboard/Employee_Dashboard";
 import Dashboard_Tab from "./pages/dashboard/new_dashboard/Dashboard_Tab";
+import Profile from "./pages/dashboard/Profile";
 
 const App = () => {
   return (
@@ -38,7 +39,12 @@ const App = () => {
           <Route path="/" element={<Layout />}>
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             {/* <Route path="/admin_dashboard" element={<Admin_Dashboard />} /> */}
-            <Route path="/dashboard" element={<Dashboard_Tab />} />
+            <Route path="/dashboard">
+              <Route index element={<Dashboard_Tab />}/>
+               <Route path="profile">
+                <Route index element={<Profile />} />
+              </Route>
+            </Route>
             <Route path="/appointment">
               <Route index element={<Appointment />} />
               <Route path="invoice">
@@ -67,7 +73,7 @@ const App = () => {
                 <Route index element={<EditBlogs />} />
               </Route>
             </Route> */}
-            <Route path="/association" element={<Association />}/>
+            <Route path="/association" element={<Association />} />
             <Route path="/reports" element={<Report />} />
             {/* <Route path="/subscription" element={<SubscriptionPlans />} /> */}
             <Route path="/setting">

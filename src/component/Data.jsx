@@ -1370,3 +1370,17 @@ export const payrollData = [
     "Net Pay": "77000"
   }
 ];
+
+export const profiledetailsData = {
+  employeeId: "EMP001",
+  name: "Name",
+  designation: "Engineer",
+  gender: "Female",
+  dateOfBirth: "11.06.2000",
+  mobileNumber: "00000 00000",
+  emailId: "hdjhshhfhj@gmail.com",
+  joiningDate: "11.06.2024",
+  language: "English",
+  reportingPerson: "Name",
+  address: "Location",
+};

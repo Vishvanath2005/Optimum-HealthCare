@@ -2,8 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { Search, Bell } from "lucide-react";
 import { useSearch } from "./SearchBar";
 import ThemeToggle from "./ThemeToggle";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = ({ pagetitle, title }) => {
+  const navigate = useNavigate()
   const { searchTerm, setSearchTerm } = useSearch();
   const dropdownRef = useRef(null);
 
@@ -49,7 +51,8 @@ const NavBar = ({ pagetitle, title }) => {
               Profile name
               <span className="">
                 <div className="">
-                  <button className="dark:bg-overall_bg-dark bg-overall_bg-light w-9 h-9 rounded-full flex items-center justify-center">
+                  <button className="dark:bg-overall_bg-dark bg-overall_bg-light w-9 h-9 rounded-full flex items-center justify-center"
+                  onClick={()=>{navigate('/dashboard/profile')}}>
                     KA
                   </button>
                 </div>
