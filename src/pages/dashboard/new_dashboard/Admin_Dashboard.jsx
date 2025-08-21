@@ -13,6 +13,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
+import { FaStar } from "react-icons/fa";
 
 const Admin_Dashboard = () => {
   const [isDark, setIsDark] = useState(false);
@@ -98,6 +99,14 @@ const Admin_Dashboard = () => {
     });
     return () => observer.disconnect();
   }, []);
+
+  const performers = [
+    { name: "Dr. Olivia Bennett", dept: "Neurology", rating: 4.9 },
+    { name: "Dr. Ethan Clark", dept: "Cardiology", rating: 4.8 },
+    { name: "Dr. Sophia Reed", dept: "Orthopedics", rating: 4.7 },
+    { name: "Dr. Noah Carter", dept: "Dermatology", rating: 4.6 },
+    { name: "Dr. Emma Hayes", dept: "Pediatrics", rating: 4.5 },
+  ];
 
   return (
     <div>
@@ -237,6 +246,23 @@ const Admin_Dashboard = () => {
           </div>
         </div>
         <div className="lg:col-span-2 space-y-3 mt-6 lg:mt-0">
+          <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl shadow">
+            <h2 className="font-semibold mb-3">Top 5 Performer of the Week</h2>
+            <div className="space-y-3">
+              {performers.map((doc, idx) => (
+                <div key={idx} className="flex justify-between items-center bg-overall_bg-dark px-2 rounded-md py-1">
+                  <p className="flex flex-col text-sm">
+                    <span>{doc.name}</span>
+                    <span className="text-gray-400">{doc.dept}</span>
+                  </p>
+                  <div className="inline-flex items-center gap-1 px-3 py-1 dark:bg-layout-dark bg-layout-light rounded-3xl">
+                    <p className="text-sm">{doc.rating}</p>
+                    <FaStar size={11} className="text-yellow-400" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl">
             <h2 className="font-semibold mb-4">Latest Events & News</h2>
             <div className="relative border-l border-gray-500/50 ml-3">
@@ -252,25 +278,6 @@ const Admin_Dashboard = () => {
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl">
-            <h2 className="font-semibold pb-2">My Notes</h2>
-            <textarea
-              name="notes"
-              id="notes"
-              className="w-full outline-none dark:bg-gray-600 bg-gray-200 dark:text-white text-black rounded-md px-2 py-1"
-              rows={4}
-            ></textarea>
-          </div>
-
-          <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl shadow">
-            <h2 className="font-semibold mb-2">Star Performer of the Week</h2>
-            <center>
-              <p className="text-lg font-bold">Dr. Olivia Bennett</p>
-              <p className="text-xs text-gray-400 py-1">Neurology</p>
-              <p className="text-xs text-gray-400">Top Rated Doctor</p>
-            </center>
           </div>
         </div>
       </div>

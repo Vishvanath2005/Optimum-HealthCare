@@ -13,6 +13,7 @@ import {
   Pie,
   Cell,
 } from "recharts";
+import { FaStar } from "react-icons/fa";
 
 const Employee_Dashboard = () => {
   const [isDark, setIsDark] = useState(false);
@@ -215,6 +216,14 @@ const Employee_Dashboard = () => {
           </div>
         </div>
         <div className="lg:col-span-3 space-y-3 mt-6 lg:mt-0">
+           <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl shadow">
+            <h2 className="font-semibold mb-2">Star Performer of the Week</h2>
+            <center>
+              <p className="text-lg font-bold flex justify-center">Dr. Olivia Bennett <span className="flex items-center ml-2 gap-1 px-1 text-sm dark:bg-overall_bg-dark bg-overall_bg-light rounded-3xl "> 4.9 <FaStar size={14} className="text-yellow-400" /></span> </p>
+              <p className="text-xs text-gray-400 py-1">Neurology</p>
+              <p className="text-xs text-gray-400 flex items-center justify-center">Top Rated Doctor</p>
+            </center>
+          </div>
           <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl">
             <h2 className="font-semibold mb-4">Latest Events & News</h2>
             <div className="relative border-l border-gray-500/50 ml-3">
@@ -242,14 +251,7 @@ const Employee_Dashboard = () => {
             ></textarea>
           </div>
 
-          <div className="dark:bg-layout-dark bg-layout-light dark:text-white text-black p-4 rounded-xl shadow">
-            <h2 className="font-semibold mb-2">Star Performer of the Week</h2>
-            <center>
-              <p className="text-lg font-bold">Dr. Olivia Bennett</p>
-              <p className="text-xs text-gray-400 py-1">Neurology</p>
-              <p className="text-xs text-gray-400">Top Rated Doctor</p>
-            </center>
-          </div>
+         
         </div>
       </div>
     </div>

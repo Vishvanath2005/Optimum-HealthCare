@@ -26,7 +26,7 @@ import Hr from "./pages/hr/Hr";
 // import Admin_Dashboard from "./pages/dashboard/new_dashboard/Admin_Dashboard";
 // import Employee_Dashboard from "./pages/dashboard/new_dashboard/Employee_Dashboard";
 import Dashboard_Tab from "./pages/dashboard/new_dashboard/Dashboard_Tab";
-import Profile from "./pages/dashboard/Profile";
+import Profile from "./pages/dashboard/profile/Profile";
 
 const App = () => {
   return (
