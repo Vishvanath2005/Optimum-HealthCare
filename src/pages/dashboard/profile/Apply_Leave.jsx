@@ -18,39 +18,46 @@ const Apply_Leave = ({ onclose }) => {
           </h1>
           <form>
             <div className="grid grid-cols-2 mb-3 items-center gap-4 dark:text-white text-black">
-              <p className="m-0">Date</p>
+              <p className="m-0">Leave Type</p>
+              <select className="p-2 rounded-md w-56 border dark:bg-overall_bg-dark bg-white border-gray-600 dark:placeholder:text-white text-black dark:text-white">
+                <option value="" className="dark:text-white text-black" disabled selected>
+                  Select leave type
+                </option>
+                <option value="OPD" className="dark:text-white text-black">
+                  LOP 
+                </option>
+                <option value="OPD" className="dark:text-white text-black">
+                  Emergency 
+                </option>
+              </select>
+            </div>{" "}
+            <div className="grid grid-cols-2 mb-3 items-center gap-4 dark:text-white text-black">
+              <p className="m-0">From Date</p>
               <input
                 type="date"
                 className="outline-none w-56 col-span-1 p-2 rounded-md bg-transparent border border-gray-600 dark:text-white text-black"
                 name="date"
                 id="date"
               />
-            </div>{" "}
+            </div>
             <div className="grid grid-cols-2 mb-3 items-center gap-4 dark:text-white text-black">
-              <p className="m-0">Leave Type</p>
+              <p className="m-0">To Date </p>
               <input
-                type="text"
-                placeholder="reason"
+                type="date"
                 className="outline-none w-56 col-span-1 p-2 rounded-md bg-transparent border border-gray-600 dark:text-white text-black"
                 name="date"
                 id="date"
               />
             </div>
             <div className="grid grid-cols-2 mb-3 items-center gap-4 dark:text-white text-black">
-              <p className="m-0">Duration</p>
+              <p className="m-0">Reason</p>
               <input
                 type="text"
-                placeholder="duration"
+                placeholder="Enter your reason"
                 className="outline-none w-56 col-span-1 p-2 rounded-md bg-transparent border border-gray-600 dark:text-white text-black"
                 name="date"
                 id="date"
               />
-            </div>
-            <div className="grid grid-cols-2 mb-3 items-center gap-4 dark:text-white text-black">
-              <p className="m-0">Status</p>
-              <button className="outline-none w-56 col-span-1 p-2 rounded-md text-white bg-select_layout-dark dark:bg-overall_bg-dark border border-gray-600 ">
-                Approved
-              </button>
             </div>
           </form>
           <div className="w-full flex justify-end items-center gap-4 mt-4 mr-6 text-sm font-normal">

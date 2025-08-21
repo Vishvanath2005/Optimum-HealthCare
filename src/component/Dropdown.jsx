@@ -25,7 +25,7 @@ const Dropdown = ({ items = [] }) => {
       </button>
 
       {isOpen && (
-        <div className="absolute dark:bg-gray-800 bg-indigo-300 right-5 z-20 text-indigo-700 font-medium rounded shadow w-36">
+        <div className="absolute dark:bg-gray-800 bg-indigo-400 right-5 z-20 text-indigo-700 font-medium rounded shadow w-36">
           <ul className="py-2 text-sm text-white">
             {items.map((item, idx) => (
               <li key={idx}>
@@ -34,7 +34,7 @@ const Dropdown = ({ items = [] }) => {
                     item.onClick();
                     setIsOpen(false);
                   }}
-                  className="w-full text-left px-3.5 py-2 dark:hover:bg-gray-700  hover:bg-indigo-400"
+                  className="w-full text-left px-3.5 py-2 dark:hover:bg-gray-700  hover:bg-indigo-500"
                 >
                   {item.label}
                 </button>
