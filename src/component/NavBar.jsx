@@ -3,12 +3,13 @@ import { Search, Bell } from "lucide-react";
 import { useSearch } from "./SearchBar";
 import ThemeToggle from "./ThemeToggle";
 import { useNavigate } from "react-router-dom";
+import Notification from "../pages/dashboard/Notification";
 
 const NavBar = ({ pagetitle, title }) => {
   const navigate = useNavigate()
   const { searchTerm, setSearchTerm } = useSearch();
   const dropdownRef = useRef(null);
-
+const [notification, setNotification] = useState(false);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -44,7 +45,8 @@ const NavBar = ({ pagetitle, title }) => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </p>
-            <p className="dark:bg-overall_bg-dark bg-overall_bg-light lg:p-2 md:p-2 p-1.5 rounded-full">
+            <p className="dark:bg-overall_bg-dark bg-overall_bg-light lg:p-2 md:p-2 p-1.5 rounded-full"
+            onClick={()=>{setNotification(true)}}>
               <Bell className="size-5" />
             </p>
             <div className=" flex  items-center gap-2 text-xs text-nowrap ">
@@ -64,6 +66,7 @@ const NavBar = ({ pagetitle, title }) => {
           </div>
         </div>
       </div>
+      {notification && (<Notification onclose={()=>{setNotification(false)}}/>)}
     </>
   );
 };
