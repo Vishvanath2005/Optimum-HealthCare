@@ -101,7 +101,7 @@ const Admin_Dashboard = () => {
 
   return (
     <div>
-      <NavBar title="Dashboard" pagetitle="Main Dashboard" />
+      {/* <NavBar title="Dashboard" pagetitle="Main Dashboard" /> */}
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         {statsData.map((stat, index) => (
           <div

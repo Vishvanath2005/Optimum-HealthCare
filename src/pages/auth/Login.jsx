@@ -55,7 +55,7 @@ const Login = () => {
               Forgot Password?
             </p>
             <p
-              onClick={() => navigate("/admin_dashboard")}
+              onClick={() => navigate("/dashboard")}
               className=" cursor-pointer bg-select_layout-dark text-black text-center   w-full py-2 my-3 rounded-md text-lg font-semibold transition duration-200 "
             >
               Login
