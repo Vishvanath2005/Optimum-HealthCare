@@ -1384,3 +1384,83 @@ export const profiledetailsData = {
   reportingPerson: "Name",
   address: "Location",
 };
+
+export const tasksData = [
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Doing",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Incomplete",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Doing",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Doing",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+  {
+    task: "Task",
+    startDate: "01.08.2025",
+    dueDate: "23.08.2025",
+    assignedTo: "Priya",
+    status: "Completed",
+  },
+];

@@ -27,6 +27,8 @@ import Hr from "./pages/hr/Hr";
 // import Employee_Dashboard from "./pages/dashboard/new_dashboard/Employee_Dashboard";
 import Dashboard_Tab from "./pages/dashboard/new_dashboard/Dashboard_Tab";
 import Profile from "./pages/dashboard/profile/Profile";
+import Tasks from "./pages/tasks/Tasks";
+import ViewTasks from "./pages/tasks/ViewTasks";
 
 const App = () => {
   return (
@@ -40,9 +42,15 @@ const App = () => {
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             {/* <Route path="/admin_dashboard" element={<Admin_Dashboard />} /> */}
             <Route path="/dashboard">
-              <Route index element={<Dashboard_Tab />}/>
-               <Route path="profile">
+              <Route index element={<Dashboard_Tab />} />
+              <Route path="profile">
                 <Route index element={<Profile />} />
+              </Route>
+            </Route>
+            <Route path="/tasks">
+              <Route index element={<Tasks />} />
+              <Route path="viewtasks">
+                <Route index element={<ViewTasks />} />
               </Route>
             </Route>
             <Route path="/appointment">

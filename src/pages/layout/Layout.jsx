@@ -18,6 +18,7 @@ import Logo_L from "../../assets/images/Logo(light).png";
 import Logo_D from "../../assets/images/Logo(dark).png";
 import NavBar from "../../component/NavBar";
 import { TbAddressBook } from "react-icons/tb";
+import { HiOutlineClipboardList } from "react-icons/hi";
 
 const Layout = () => {
   const [open, setOpen] = useState(false);
@@ -29,15 +30,20 @@ const Layout = () => {
       icon: <LayoutDashboard size={23} />,
       to: "/dashboard",
     },
-    // { title: "GMB", icon: <FileWarning size={23} />, to: "/gmb" },
-    {
-      title: "Leads",
-      icon: (
+      {
+      title: "Tasks",
+      icon:  (
         <div className="relative w-6 h-6">
           <File className="absolute  w-6 h-6" />
           <AlertTriangle className="absolute left-1.5 top-2  w-3 h-3" />
         </div>
       ),
+      to: "/tasks",
+    },
+    // { title: "GMB", icon: <FileWarning size={23} />, to: "/gmb" },
+    {
+      title: "Leads",
+      icon:<HiOutlineClipboardList  size={23}/>,
       to: "/leads",
     },
     // { title: "CMS", icon: <Receipt size={23} />, to: "/cms" },
