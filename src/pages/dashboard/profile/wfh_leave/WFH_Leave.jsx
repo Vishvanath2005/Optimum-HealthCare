@@ -100,20 +100,20 @@ const wfhData = [
         <div className="flex gap-2 ">
         <button
           onClick={() => setActiveTab("leave")}
-          className={`px-4 py-2 rounded-md font-medium ${
+          className={`px-4 py-2 rounded-md font-medium cursor-pointer ${
             activeTab === "leave"
               ? "dark:bg-black/30 bg-overall_bg-light dark:text-white text-black"
-              : "border border-gray-300 text-gray-600 dark:text-gray-300"
+              : " text-gray-600 dark:text-gray-300"
           }`}
         >
         Leaves
         </button>
         <button
           onClick={() => setActiveTab("wfh")}
-          className={`px-4 py-2 rounded-md font-medium ${
+          className={`px-4 py-2 rounded-md font-medium cursor-pointer ${
             activeTab === "wfh"
               ? "dark:bg-black/30 bg-overall_bg-light dark:text-white text-black"
-              : "border border-gray-300 text-gray-600 dark:text-gray-300"
+              : " text-gray-600 dark:text-gray-300"
           }`}
         >
         WFH
@@ -162,7 +162,6 @@ const wfhData = [
         </table>
       </div>
 
-      {/* Modals */}
       {applyModal &&
         (activeTab === "leave" ? (
           <Apply_Leave onclose={() => setApplyModal(false)} />
