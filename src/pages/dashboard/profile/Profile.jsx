@@ -29,14 +29,14 @@ const Profile = () => {
   ];
 
    const dropdownItems = [
-    {
-      label: "Edit Profile",
-      onClick: () => setEditprofile(true),
-    },
-    {
-      label: "Change Password",
-      onClick: () => setChangepassword(true),
-    },
+    // {
+    //   label: "Edit Profile",
+    //   onClick: () => setEditprofile(true),
+    // },
+    // {
+    //   label: "Change Password",
+    //   onClick: () => setChangepassword(true),
+    // },
     {
       label: "Logout",
       onClick: () => navigate('/'),

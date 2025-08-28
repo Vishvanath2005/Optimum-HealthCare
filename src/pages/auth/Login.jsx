@@ -48,12 +48,12 @@ const Login = () => {
               </span>
             </label>
 
-            <p
+            {/* <p
               onClick={() => navigate("/forgotpassword")}
               className="text-right text-sm cursor-pointer hover:underline mt-4"
             >
               Forgot Password?
-            </p>
+            </p> */}
             <p
               onClick={() => navigate("/dashboard")}
               className=" cursor-pointer bg-select_layout-dark text-black text-center   w-full py-2 my-3 rounded-md text-lg font-semibold transition duration-200 "
